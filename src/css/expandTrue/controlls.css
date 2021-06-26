@@ -1,0 +1,18 @@
+#appinion-widget-root > .widget-wrap > .expand-true > .controlls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .controlls
+  > .img-collapse {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+#appinion-widget-root > .widget-wrap > .expand-true > .controlls > .img-close {
+  cursor: pointer;
+}

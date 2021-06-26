@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../css/widget.css";
+
 import ExpandFalse from "./expandFalse";
+import ExpandTrue from "./expandTrue";
 
 const Widget = () => {
   const [expand, setExpand] = useState(false);
@@ -24,7 +26,11 @@ const Widget = () => {
         className="widget-wrap"
         style={{ "--width": dimentions.width, "--height": dimentions.height }}
       >
-        {!expand && <ExpandFalse handleExpand={handleExpand} />}
+        {expand ? (
+          <ExpandTrue handleExpand={handleExpand} />
+        ) : (
+          <ExpandFalse handleExpand={handleExpand} />
+        )}
       </div>
     </div>
   );
