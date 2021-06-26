@@ -3,6 +3,7 @@ import "../../css/expandTrue/expandTrue.css";
 import Controlls from "./controlls";
 import Footer from "./footer";
 import Manager from "./manager";
+import Main from "./main";
 
 const ExpandTrue = ({ handleExpand }) => {
   return (
@@ -11,7 +12,7 @@ const ExpandTrue = ({ handleExpand }) => {
         <Controlls handleExpand={handleExpand} />
         <Manager />
       </div>
-      <div style={{ height: "100%" }}>Menu</div>
+      <Main />
       <Footer />
     </div>
   );
