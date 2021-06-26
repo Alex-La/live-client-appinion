@@ -1,6 +1,24 @@
+import { useState } from "react";
 import "../../../css/expandTrue/main/connection.css";
 
-const Connection = () => {
+const Connection = ({ socket, setIsConnected }) => {
+  const [form, setForm] = useState({
+    host: "https://candy-shop.su",
+    email: "",
+    name: "",
+    time: 0,
+  });
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    setForm({ ...form, time: Date.now() });
+    socket.emit("user", form);
+    setIsConnected(true);
+  };
+
   return (
     <div className="connection">
       <div className="message">
@@ -17,10 +35,23 @@ const Connection = () => {
         </div>
       </div>
 
-      <form className="form">
-        <input type="name" placeholder="Ваше имя" />
-        <input type="email" className="email" placeholder="E-mail" />
-        <button>Продолжить</button>
+      <form onSubmit={handleSend} className="form">
+        <input
+          type="name"
+          placeholder="Ваше имя"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          className="email"
+          placeholder="E-mail"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+        />
+        <button type="submit">Продолжить</button>
       </form>
     </div>
   );
