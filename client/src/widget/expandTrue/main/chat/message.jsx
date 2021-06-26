@@ -9,7 +9,10 @@ const Message = ({ message }) => {
 
 const Default = ({ message }) => {
   return (
-    <div className="message">
+    <div
+      className="message"
+      style={{ alignSelf: message.from === "user" && "flex-end" }}
+    >
       {message.from === "manager" && (
         <div className="icon-wrap" style={{ marginRight: 12 }}>
           <img src={Manager} alt="manager" />
@@ -32,7 +35,7 @@ const Default = ({ message }) => {
           />
         </svg>
 
-        <p>Готова вас проконсультировать, подключитесь к трансляции</p>
+        <p>{message.message}</p>
       </div>
       {message.from === "user" && (
         <div className="icon-wrap" style={{ marginLeft: 12 }}>

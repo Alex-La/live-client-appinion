@@ -24,6 +24,15 @@ io.on("connection", (socket) => {
     socket.emit("users", users[host] || []);
   });
 
+  socket.on("managerId", (userId) => {
+    socket.to(userId).emit("managerId", socket.id);
+  });
+
+  socket.on("message", (message, reciver) => {
+    socket.emit("message", message);
+    socket.to(reciver).emit("message", message);
+  });
+
   socket.on("disconnect", () => {
     for (const [key, _] of Object.entries(users)) {
       const index = users[key].findIndex((user) => user.id === socket.id);

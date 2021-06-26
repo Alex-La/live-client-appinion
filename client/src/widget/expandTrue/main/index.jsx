@@ -16,7 +16,7 @@ const Main = () => {
   return (
     <div className="main">
       {isConnected ? (
-        <Chat />
+        <Chat socket={socket} />
       ) : (
         <Connection socket={socket} setIsConnected={setIsConnected} />
       )}
