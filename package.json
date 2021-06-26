@@ -1,0 +1,25 @@
+{
+  "name": "live-client-appinion",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Alex-La/live-client-appinion.git",
+  "author": "Alex-La <55190911+Alex-La@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "server": "nodemon index.js",
+    "client": "yarn --cwd client start",
+    "client:install": "yarn --cwd client install",
+    "client:build": "yarn --cwd client build",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\""
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  }
+}
