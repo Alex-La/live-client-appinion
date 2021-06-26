@@ -3,3 +3,25 @@
   position: relative;
   width: 100%;
 }
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap {
+  width: 100%;
+  height: 420px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap::-webkit-scrollbar {
+  display: none;
+}

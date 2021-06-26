@@ -1,0 +1,80 @@
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message {
+  display: flex;
+  padding-top: 30px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .icon-wrap
+  > p {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .icon-wrap
+  > img {
+  border-radius: 50px;
+  border: 1px solid #f08466;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .text {
+  background-color: rgba(239, 141, 114, 0.1);
+  border-radius: 10px;
+  position: relative;
+  padding: 12px 20px;
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .text
+  > .torch {
+  position: absolute;
+  top: 0;
+}
