@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../../css/expandTrue/main/main.css";
 
 import io from "socket.io-client";
@@ -10,6 +10,8 @@ const socket = io();
 
 const Main = () => {
   const [isConnected, setIsConnected] = useState(false);
+
+  useEffect(() => () => socket.disconnect(), []);
 
   return (
     <div className="main">

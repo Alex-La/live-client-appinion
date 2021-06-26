@@ -1,0 +1,35 @@
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .send-control {
+  display: flex;
+  position: absolute;
+  bottom: 23px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .send-control
+  > input {
+  margin-top: 12px;
+  width: 100%;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .send-control
+  > button {
+  margin-left: 20px;
+  width: 60px;
+}

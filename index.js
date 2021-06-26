@@ -14,14 +14,22 @@ io.on("connection", (socket) => {
   });
 
   socket.on("user", (data) => {
-    console.log(data);
-    if (Array.isArray(users[data.host])) users[data.host].push(data);
-    else users[data.host] = [data];
-    socket.emit("users", users[data.host]);
+    if (Array.isArray(users[data.host]))
+      users[data.host].push({ id: socket.id, ...data });
+    else users[data.host] = [{ id: socket.id, ...data }];
+    socket.to(data.host).emit("users", users[data.host]);
   });
 
   socket.on("users", (host) => {
-    socket.emit("users", users[host]);
+    socket.emit("users", users[host] || []);
+  });
+
+  socket.on("disconnect", () => {
+    for (const [key, _] of Object.entries(users)) {
+      const index = users[key].findIndex((user) => user.id === socket.id);
+      if (index !== -1) users[key].splice(index, 1);
+      socket.to(key).emit("users", users[key]);
+    }
   });
 });
 

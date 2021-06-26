@@ -6,7 +6,7 @@ const Connection = ({ socket, setIsConnected }) => {
     host: "https://candy-shop.su",
     email: "",
     name: "",
-    time: 0,
+    time: "12:37",
   });
 
   const handleChange = (e) =>
@@ -14,7 +14,6 @@ const Connection = ({ socket, setIsConnected }) => {
 
   const handleSend = (e) => {
     e.preventDefault();
-    setForm({ ...form, time: Date.now() });
     socket.emit("user", form);
     setIsConnected(true);
   };
