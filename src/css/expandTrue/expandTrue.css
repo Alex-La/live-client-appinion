@@ -1,3 +1,7 @@
 #appinion-widget-root > .widget-wrap > .expand-true {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }

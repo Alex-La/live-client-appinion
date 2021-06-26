@@ -1,0 +1,47 @@
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .manager-wrap {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 11px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .manager-wrap
+  > img {
+  border-radius: 50px;
+  border: 1px solid #4e7fce;
+  margin-right: 13px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .manager-wrap
+  > .manager
+  > .name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .manager-wrap
+  > .manager
+  > .description {
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 5px;
+  color: #000;
+}

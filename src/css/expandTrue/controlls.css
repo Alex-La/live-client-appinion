@@ -1,4 +1,8 @@
-#appinion-widget-root > .widget-wrap > .expand-true > .controlls {
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .controlls {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -7,12 +11,18 @@
 #appinion-widget-root
   > .widget-wrap
   > .expand-true
+  > .header-wrap
   > .controlls
   > .img-collapse {
   margin-right: 12px;
   cursor: pointer;
 }
 
-#appinion-widget-root > .widget-wrap > .expand-true > .controlls > .img-close {
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  .controlls
+  > .img-close {
   cursor: pointer;
 }
