@@ -1,0 +1,32 @@
+#appinion-widget-root > .widget-wrap > .expand-false {
+  padding: 20px;
+  cursor: pointer;
+}
+
+#appinion-widget-root > .widget-wrap > .expand-false > .live {
+  background-color: #f44336;
+  width: 87px;
+  padding: 8px 0;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.055em;
+  border-radius: 3px;
+}
+
+#appinion-widget-root > .widget-wrap > .expand-false > .title {
+  color: #282828;
+  padding-top: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.055em;
+}
+
+#appinion-widget-root > .widget-wrap > .expand-false > .time {
+  color: #282828;
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 5px;
+  letter-spacing: 0.055em;
+}

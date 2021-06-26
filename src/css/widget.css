@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+#appinion-widget-root p {
+  margin: 0 !important;
+}
+
+#appinion-widget-root > .widget-wrap {
+  position: fixed !important;
+  font-family: "Montserrat", sans-serif !important;
+  right: 68px;
+  bottom: 50px;
+  width: var(--width);
+  height: var(--height);
+  background-color: white;
+  box-shadow: 12px 5px 27px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  transition: 0.5s;
+}
