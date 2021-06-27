@@ -2,9 +2,19 @@ import "../../../../css/expandTrue/main/chat/message.css";
 
 import Manager from "../../../../images/dispatcher.png";
 
-const Message = ({ message }) => {
+const Message = ({ message, setStartLive }) => {
   if (message.type === "default") return <Default message={message} />;
+  if (message.type === "live")
+    return <LiveConnection setStartLive={setStartLive} />;
   return <></>;
+};
+
+const LiveConnection = ({ setStartLive }) => {
+  return (
+    <div className="message" style={{ alignSelf: "center" }}>
+      <button onClick={setStartLive}>Подключиться к онлайн трансляции</button>
+    </div>
+  );
 };
 
 const Default = ({ message }) => {

@@ -33,6 +33,18 @@ io.on("connection", (socket) => {
     socket.to(reciver).emit("message", message);
   });
 
+  socket.on("offer", (id, description) => {
+    socket.to(id).emit("offer", description);
+  });
+
+  socket.on("answer", (id, description) => {
+    socket.to(id).emit("answer", description);
+  });
+
+  socket.on("iceCandidate", (id, candidate) => {
+    socket.to(id).emit("iceCandidate", candidate);
+  });
+
   socket.on("disconnect", () => {
     for (const [key, _] of Object.entries(users)) {
       const index = users[key].findIndex((user) => user.id === socket.id);

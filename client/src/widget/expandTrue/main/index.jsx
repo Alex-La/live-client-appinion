@@ -6,17 +6,24 @@ import io from "socket.io-client";
 import Connection from "./connection";
 import Chat from "./chat/chat";
 
-const socket = io("https://api.appinion.digital");
+const socket = io();
 
-const Main = () => {
+const Main = ({ setStartLive, setSocket, setManager }) => {
   const [isConnected, setIsConnected] = useState(false);
 
-  useEffect(() => () => socket.disconnect(), []);
+  useEffect(() => {
+    setSocket(socket);
+    return () => socket.disconnect();
+  }, [setSocket]);
 
   return (
     <div className="main">
       {isConnected ? (
-        <Chat socket={socket} />
+        <Chat
+          socket={socket}
+          setStartLive={setStartLive}
+          setManager={setManager}
+        />
       ) : (
         <Connection socket={socket} setIsConnected={setIsConnected} />
       )}
