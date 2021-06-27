@@ -6,7 +6,7 @@ import io from "socket.io-client";
 import Connection from "./connection";
 import Chat from "./chat/chat";
 
-const socket = io();
+const socket = io("https://api.appinion.digital");
 
 const Main = () => {
   const [isConnected, setIsConnected] = useState(false);
