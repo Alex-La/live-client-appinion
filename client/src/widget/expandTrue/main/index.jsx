@@ -30,6 +30,7 @@ const Main = ({ setStartLive, setSocket, setManager, data }) => {
           socket={socket}
           setIsConnected={setIsConnected}
           color={data.mainColor}
+          host={data.host}
         />
       )}
     </div>

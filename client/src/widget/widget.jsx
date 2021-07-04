@@ -34,7 +34,7 @@ const query = `query videoWidget($id: String!) {
 
 const getData = async (token) => {
   try {
-    const response = await fetch("http://localhost:4000/graphql", {
+    const response = await fetch("http://192.168.0.28:4000/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,6 +65,14 @@ const Widget = ({ token }) => {
   const [manager, setManager] = useState(null);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const resize = () => setWidth(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, []);
 
   useEffect(() => {
     getData(token).then((data) => {
@@ -91,7 +99,14 @@ const Widget = ({ token }) => {
     <div id="appinion-widget-root">
       <div
         className="widget-wrap"
-        style={{ "--width": dimentions.width, "--height": dimentions.height }}
+        style={{
+          "--width": width <= 425 && expand ? "100%" : dimentions.width,
+          "--height": width <= 425 && expand ? "100%" : dimentions.height,
+          [data.location[1]]: width <= 768 ? (expand ? 0 : 34) : 68,
+          [data.location[0]]: width <= 768 ? (expand ? 0 : 25) : 50,
+          transform: width <= 425 && !expand && "scale(0.5)",
+          transformOrigin: `${data.location[1]} ${data.location[0]}`,
+        }}
       >
         {startLive && socket && manager && (
           <LiveVideo socket={socket} manager={manager} />

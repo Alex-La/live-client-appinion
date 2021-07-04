@@ -7,8 +7,6 @@
 #appinion-widget-root > .widget-wrap {
   position: fixed !important;
   font-family: "Montserrat", sans-serif !important;
-  right: 68px;
-  bottom: 50px;
   width: var(--width);
   height: var(--height);
   background-color: white;

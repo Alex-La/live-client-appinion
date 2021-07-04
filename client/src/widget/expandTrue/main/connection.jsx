@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../../../css/expandTrue/main/connection.css";
 
-const Connection = ({ socket, setIsConnected, color }) => {
+const Connection = ({ socket, setIsConnected, color, host }) => {
   const [form, setForm] = useState({
-    host: "https://candy-shop.su",
+    host,
     email: "",
     name: "",
     time: "12:37",

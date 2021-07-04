@@ -2,16 +2,7 @@ import { useEffect, useRef } from "react";
 
 var configuration = {
   sdpSemantics: "plan-b",
-  iceServers: [
-    {
-      urls: "stun:stun.services.mozilla.com",
-      username: "louis@mozilla.com",
-      credential: "webrtcdemo",
-    },
-    {
-      urls: ["stun:stun.example.com", "stun:stun-1.example.com"],
-    },
-  ],
+  iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
 };
 const pc = new RTCPeerConnection(configuration);
 
