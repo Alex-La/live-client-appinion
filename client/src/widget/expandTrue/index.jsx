@@ -7,6 +7,7 @@ import Main from "./main";
 
 const ExpandTrue = ({
   handleExpand,
+  startLive,
   setStartLive,
   setSocket,
   setManager,
@@ -17,19 +18,21 @@ const ExpandTrue = ({
     <div className="expand-true">
       <div className="header-wrap">
         <Controlls
+          startLive={startLive}
           handleExpand={handleExpand}
           handleRemove={handleRemove}
           color={data.mainColor}
         />
-        <Manager data={data} />
+        {!startLive && <Manager data={data} />}
       </div>
       <Main
         setStartLive={setStartLive}
         setSocket={setSocket}
         setManager={setManager}
         data={data}
+        startLive={startLive}
       />
-      <Footer />
+      {!startLive && <Footer />}
     </div>
   );
 };

@@ -4,8 +4,8 @@
   > .header-wrap
   > .controlls {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: var(--justing);
+  align-items: center;
 }
 
 #appinion-widget-root
@@ -13,6 +13,21 @@
   > .expand-true
   > .header-wrap
   > .controlls
+  > .live-indicator {
+  background-color: #f44336;
+  border-radius: 3px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 26px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .header-wrap
+  > .controlls
+  > .controlls-wrap
   > .img-collapse {
   margin-right: 12px;
   cursor: pointer;
@@ -22,7 +37,8 @@
   > .widget-wrap
   > .expand-true
   > .header-wrap
-  .controlls
+  > .controlls
+  > .controlls-wrap
   > .img-close {
   cursor: pointer;
 }

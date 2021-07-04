@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "../../../../css/expandTrue/main/chat/sendControll.css";
 
-const SendControll = ({ managerId, socket, color }) => {
+const SendControll = ({ managerId, socket, color, startLive }) => {
   const inputRef = useRef();
 
   const [message, setMessage] = useState("");
@@ -16,13 +16,20 @@ const SendControll = ({ managerId, socket, color }) => {
   };
 
   return (
-    <form onSubmit={handleSend} className="send-control">
+    <form
+      onSubmit={handleSend}
+      className="send-control"
+      style={{ marginBottom: startLive && 24 }}
+    >
       <input
         ref={inputRef}
         placeholder="Ваше сообщение"
         value={message}
         onChange={handleChange}
-        style={{ "--color": color }}
+        style={{
+          "--color": color,
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
+        }}
       />
       <button type="submit" style={{ backgroundColor: color }}>
         <svg

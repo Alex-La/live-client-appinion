@@ -100,11 +100,11 @@ const Widget = ({ token }) => {
       <div
         className="widget-wrap"
         style={{
-          "--width": width <= 425 && expand ? "100%" : dimentions.width,
-          "--height": width <= 425 && expand ? "100%" : dimentions.height,
-          [data.location[1]]: width <= 768 ? (expand ? 0 : 34) : 68,
-          [data.location[0]]: width <= 768 ? (expand ? 0 : 25) : 50,
-          transform: width <= 425 && !expand && "scale(0.5)",
+          "--width": width <= 426 && expand ? "100%" : dimentions.width,
+          "--height": width <= 426 && expand ? "100%" : dimentions.height,
+          [data.location[1]]: width <= 769 ? (expand ? 0 : 34) : 68,
+          [data.location[0]]: width <= 769 ? (expand ? 0 : 25) : 50,
+          transform: width <= 426 && !expand && "scale(0.5)",
           transformOrigin: `${data.location[1]} ${data.location[0]}`,
         }}
       >
@@ -112,10 +112,24 @@ const Widget = ({ token }) => {
           <LiveVideo socket={socket} manager={manager} />
         )}
 
+        {startLive && (
+          <div
+            className="shadow"
+            style={{
+              "--deg": "180deg",
+              top: 0,
+            }}
+          />
+        )}
+        {startLive && (
+          <div className="shadow" style={{ "--deg": "0deg", bottom: 0 }} />
+        )}
+
         {expand ? (
           <ExpandTrue
             handleExpand={handleExpand}
             handleRemove={handleRemove}
+            startLive={startLive}
             setStartLive={setStartLive}
             setSocket={setSocket}
             setManager={setManager}

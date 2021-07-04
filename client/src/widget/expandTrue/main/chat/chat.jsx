@@ -4,7 +4,7 @@ import "../../../../css/expandTrue/main/chat/chat.css";
 import Message from "./message";
 import SendControll from "./sendControll";
 
-const Chat = ({ socket, setStartLive, setManager, color }) => {
+const Chat = ({ socket, setStartLive, setManager, color, startLive }) => {
   const scrollRef = useRef();
 
   const [managerId, setManagerId] = useState(null);
@@ -23,7 +23,14 @@ const Chat = ({ socket, setStartLive, setManager, color }) => {
 
   return (
     <div className="chat">
-      <div className="messages-wrap" ref={scrollRef}>
+      <div
+        className="messages-wrap"
+        ref={scrollRef}
+        style={{
+          "--just": startLive ? "flex-end" : "flex-start",
+          "--height": startLive ? "500px" : "420px",
+        }}
+      >
         {messages.map((item, index) => (
           <Message
             message={{ type: "default", ...item }}
@@ -33,7 +40,12 @@ const Chat = ({ socket, setStartLive, setManager, color }) => {
           />
         ))}
       </div>
-      <SendControll managerId={managerId} socket={socket} color={color} />
+      <SendControll
+        managerId={managerId}
+        socket={socket}
+        color={color}
+        startLive={startLive}
+      />
     </div>
   );
 };

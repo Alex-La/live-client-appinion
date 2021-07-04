@@ -8,7 +8,7 @@ import Chat from "./chat/chat";
 
 const socket = io("http://localhost:4000");
 
-const Main = ({ setStartLive, setSocket, setManager, data }) => {
+const Main = ({ setStartLive, setSocket, setManager, data, startLive }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const Main = ({ setStartLive, setSocket, setManager, data }) => {
           setStartLive={setStartLive}
           setManager={setManager}
           color={data.mainColor}
+          startLive={startLive}
         />
       ) : (
         <Connection
