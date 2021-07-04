@@ -6,9 +6,9 @@ import io from "socket.io-client";
 import Connection from "./connection";
 import Chat from "./chat/chat";
 
-const socket = io("https://api.appinion.digital");
+const socket = io("http://localhost:4000");
 
-const Main = ({ setStartLive, setSocket, setManager }) => {
+const Main = ({ setStartLive, setSocket, setManager, data }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
@@ -23,9 +23,14 @@ const Main = ({ setStartLive, setSocket, setManager }) => {
           socket={socket}
           setStartLive={setStartLive}
           setManager={setManager}
+          color={data.mainColor}
         />
       ) : (
-        <Connection socket={socket} setIsConnected={setIsConnected} />
+        <Connection
+          socket={socket}
+          setIsConnected={setIsConnected}
+          color={data.mainColor}
+        />
       )}
     </div>
   );

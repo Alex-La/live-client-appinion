@@ -1,19 +1,26 @@
 import { useState } from "react";
 import "../../../../css/expandTrue/main/chat/sendControll.css";
 
-const SendControll = ({ managerId, socket }) => {
+const SendControll = ({ managerId, socket, color }) => {
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSend = () => {
-    if (message.length !== 0)
+    if (message.length !== 0) {
       socket.emit("message", { message, from: "user" }, managerId);
+      setMessage("");
+    }
   };
 
   return (
     <div className="send-control">
-      <input placeholder="Ваше сообщение" onChange={handleChange} />
-      <button onClick={handleSend}>
+      <input
+        placeholder="Ваше сообщение"
+        value={message}
+        onChange={handleChange}
+        style={{ "--color": color }}
+      />
+      <button style={{ backgroundColor: color }} onClick={handleSend}>
         <svg
           width="11"
           height="16"

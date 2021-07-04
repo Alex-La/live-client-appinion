@@ -10,7 +10,7 @@
   > .main
   > .connection
   > .message {
-  background: rgba(78, 127, 206, 0.1);
+  background: var(--color);
   border-radius: 10px;
   padding: 19px 48px;
   text-align: center;

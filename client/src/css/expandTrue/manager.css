@@ -17,7 +17,7 @@
   > .manager-wrap
   > img {
   border-radius: 50px;
-  border: 1px solid #4e7fce;
+  border: 1px solid var(--color);
   margin-right: 13px;
 }
 

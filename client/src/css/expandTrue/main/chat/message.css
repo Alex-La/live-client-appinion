@@ -46,7 +46,25 @@
   > .icon-wrap
   > img {
   border-radius: 50px;
-  border: 1px solid #f08466;
+  border: 1px solid var(--color);
+  margin-bottom: 2px;
+}
+
+#appinion-widget-root
+  > .widget-wrap
+  > .expand-true
+  > .main
+  > .chat
+  > .messages-wrap
+  > .message
+  > .icon-wrap
+  > div {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color);
+  background-color: white;
+  border-radius: 50px;
+  margin-bottom: 2px;
 }
 
 #appinion-widget-root
@@ -57,13 +75,14 @@
   > .messages-wrap
   > .message
   > .text {
-  background-color: rgba(239, 141, 114, 0.1);
+  background-color: var(--color);
   border-radius: 10px;
   position: relative;
   padding: 12px 20px;
   color: #000;
   font-weight: 400;
   font-size: 14px;
+  word-break: break-all;
 }
 
 #appinion-widget-root

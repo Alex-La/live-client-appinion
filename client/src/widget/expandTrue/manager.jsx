@@ -2,13 +2,13 @@ import "../../css/expandTrue/manager.css";
 
 import ManagerImg from "../../images/dispatcher.png";
 
-const Manager = () => {
+const Manager = ({ data }) => {
   return (
-    <div className="manager-wrap">
+    <div className="manager-wrap" style={{ "--color": data.mainColor }}>
       <img src={ManagerImg} alt="manager-img" />
       <div className="manager">
-        <p className="name">Ирина Иванова</p>
-        <p className="description">Онлайн-консультант, магазина Чистокот</p>
+        <p className="name">{data.name}</p>
+        <p className="description">{data.position}</p>
       </div>
     </div>
   );
