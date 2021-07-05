@@ -66,6 +66,7 @@ const Widget = ({ token }) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [width, setWidth] = useState(window.innerWidth);
+  const [remoteDescription, setRemoteDescription] = useState(null);
 
   const resize = () => setWidth(window.innerWidth);
 
@@ -91,6 +92,14 @@ const Widget = ({ token }) => {
     );
   };
 
+  useEffect(() => {
+    if (socket) {
+      socket.on("offer", (desc) => {
+        setRemoteDescription(desc);
+      });
+    }
+  }, [socket]);
+
   if (remove) return <Fragment />;
 
   return loading ? (
@@ -109,7 +118,11 @@ const Widget = ({ token }) => {
         }}
       >
         {startLive && socket && manager && (
-          <LiveVideo socket={socket} manager={manager} />
+          <LiveVideo
+            socket={socket}
+            manager={manager}
+            remoteDescription={remoteDescription}
+          />
         )}
 
         {startLive && (

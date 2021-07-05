@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 var configuration = {
   sdpSemantics: "plan-b",
@@ -6,23 +6,28 @@ var configuration = {
 };
 const pc = new RTCPeerConnection(configuration);
 
-const LiveVideo = ({ socket, manager }) => {
+const LiveVideo = ({ socket, manager, remoteDescription }) => {
   const videoRef = useRef(null);
+  const [stream, setStream] = useState(null);
 
   useEffect(() => {
-    socket.on("offer", (description) => {
-      navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-        stream.getTracks().forEach((track) => pc.addTrack(track, stream));
-        pc.setRemoteDescription(description).then(() => {
-          pc.createAnswer().then((desc) => {
-            pc.setLocalDescription(desc).then(() => {
-              socket.emit("answer", manager, pc.localDescription);
-            });
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+      setStream(stream);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (remoteDescription && stream) {
+      stream.getTracks().forEach((track) => pc.addTrack(track, stream));
+      pc.setRemoteDescription(remoteDescription).then(() => {
+        pc.createAnswer().then((desc) => {
+          pc.setLocalDescription(desc).then(() => {
+            socket.emit("answer", manager, pc.localDescription);
           });
         });
       });
-    });
-  }, [socket, manager]);
+    }
+  }, [socket, manager, remoteDescription, stream]);
 
   useEffect(() => {
     pc.onicecandidate = (e) => {
