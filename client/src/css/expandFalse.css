@@ -1,32 +1,48 @@
-#appinion-widget-root > .widget-wrap > .expand-false {
-  padding: 20px;
-  cursor: pointer;
+#live-appinion-root > .widget-wrap > .expand-false {
+  padding: 26px;
 }
 
-#appinion-widget-root > .widget-wrap > .expand-false > .live {
+#live-appinion-root > .widget-wrap > .expand-false > .live {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#live-appinion-root > .widget-wrap > .expand-false > .live > .live-indicator {
+  width: 6px;
+  height: 6px;
   background-color: #f44336;
-  width: 87px;
-  padding: 8px 0;
-  text-align: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.055em;
-  border-radius: 3px;
+  box-shadow: 0px 0px 0px 6px rgba(244, 67, 54, 0.15);
+  border-radius: 50px;
+  margin-right: 15px;
 }
 
-#appinion-widget-root > .widget-wrap > .expand-false > .title {
-  color: #282828;
-  padding-top: 10px;
+#live-appinion-root > .widget-wrap > .expand-false > .live > .live-text {
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.055em;
+  line-height: 22px;
+  letter-spacing: 0.05em;
 }
 
-#appinion-widget-root > .widget-wrap > .expand-false > .time {
-  color: #282828;
+#live-appinion-root > .widget-wrap > .expand-false > .live > .live-open {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+#live-appinion-root > .widget-wrap > .expand-false > .info {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 16px !important;
+}
+
+#live-appinion-root > .widget-wrap > .expand-false > .timing {
   font-weight: 400;
-  font-size: 14px;
-  padding-top: 5px;
-  letter-spacing: 0.055em;
+  font-size: 12px;
+  margin-top: 10px !important;
 }

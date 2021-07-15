@@ -1,29 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-#appinion-widget-root p {
-  margin: 0 !important;
-}
-
-#appinion-widget-root button:focus {
-  outline: none;
-}
-
-#appinion-widget-root > .widget-wrap {
-  position: fixed !important;
+.widget-wrap {
   font-family: "Montserrat", sans-serif !important;
-  width: var(--width);
-  height: var(--height);
-  background-color: white;
-  box-shadow: 12px 5px 27px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  transition: 0.5s;
+  position: fixed !important;
+  background-color: white !important;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 338px;
+  height: 145px;
+  bottom: 30px;
+  right: 50px;
 }
 
-#appinion-widget-root > .widget-wrap > .shadow {
-  position: absolute;
-  width: 100%;
-  height: 100px;
-  background: linear-gradient(var(--deg), #00000066 0%, rgba(0, 0, 0, 0) 100%);
-  z-index: -1;
-  border-radius: 10px;
+.widget-wrap p {
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif !important;
+  color: #282828 !important;
 }
