@@ -1,8 +1,9 @@
 import React from "react";
 
-const Close = () => {
+const Close = ({ handleClose }) => {
   return (
     <svg
+      onClick={handleClose}
       style={{ cursor: "pointer" }}
       width="16"
       height="16"

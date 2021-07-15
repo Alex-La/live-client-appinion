@@ -1,8 +1,9 @@
 import React from "react";
 
-const Collapse = () => {
+const Collapse = ({ handleExpand }) => {
   return (
     <svg
+      onClick={handleExpand}
       style={{ marginRight: 15, paddingTop: 15, cursor: "pointer" }}
       width="16"
       height="2"

@@ -47,8 +47,8 @@
   background-color: #4e7fce;
   border: 3px solid #ffffff;
   border-radius: 50px;
-  right: 0px;
-  bottom: 8px;
+  right: -1px;
+  bottom: 6px;
 }
 
 #live-appinion-root

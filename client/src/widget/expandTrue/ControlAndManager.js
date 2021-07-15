@@ -5,7 +5,7 @@ import Manager from "../../images/dispatcher.png";
 import Close from "../../images/js/Close";
 import Collapse from "../../images/js/Collapse";
 
-const ControlAndManager = ({ handleExpand }) => {
+const ControlAndManager = ({ handleExpand, handleClose }) => {
   return (
     <div className="cam-wrap">
       <div className="manager">
@@ -19,8 +19,8 @@ const ControlAndManager = ({ handleExpand }) => {
         </div>
       </div>
       <div className="control">
-        <Collapse />
-        <Close />
+        <Collapse handleExpand={handleExpand} />
+        <Close handleClose={handleClose} />
       </div>
     </div>
   );
