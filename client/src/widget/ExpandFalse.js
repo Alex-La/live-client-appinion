@@ -3,9 +3,9 @@ import "../css/expandFalse.css";
 
 import ArrowOpen from "../images/arrowOpen.svg";
 
-const ExpandFalse = () => {
+const ExpandFalse = ({ handleExpand }) => {
   return (
-    <div className="expand-false">
+    <div className="expand-false" onClick={handleExpand}>
       <div className="live">
         <div className="live-indicator" />
         <p className="live-text">LIVE</p>
