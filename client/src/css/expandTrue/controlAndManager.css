@@ -1,0 +1,81 @@
+#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap > .manager {
+  display: flex;
+  align-items: center;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .cam-wrap
+  > .manager
+  > .img-wrap {
+  position: relative;
+  margin-right: 20px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .cam-wrap
+  > .manager
+  > .img-wrap
+  > img {
+  background-color: #c4c4c4;
+  border-radius: 50px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .cam-wrap
+  > .manager
+  > .img-wrap
+  > .online {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: #4e7fce;
+  border: 3px solid #ffffff;
+  border-radius: 50px;
+  right: 0px;
+  bottom: 8px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .cam-wrap
+  > .manager
+  > .manager-data
+  > .name {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .cam-wrap
+  > .manager
+  > .manager-data
+  > .position {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #999999 !important;
+}
+
+#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap > .control {
+  display: flex;
+}
