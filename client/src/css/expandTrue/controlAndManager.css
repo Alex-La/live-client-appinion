@@ -1,11 +1,16 @@
-#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap {
+#live-appinion-root > .widget-wrap > .expand-true > .header > .cam-wrap {
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap > .manager {
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .header
+  > .cam-wrap
+  > .manager {
   display: flex;
   align-items: center;
 }
@@ -13,6 +18,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
+  > .header
   > .cam-wrap
   > .manager
   > .img-wrap {
@@ -23,6 +29,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
+  > .header
   > .cam-wrap
   > .manager
   > .img-wrap
@@ -37,6 +44,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
+  > .header
   > .cam-wrap
   > .manager
   > .img-wrap
@@ -54,6 +62,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
+  > .header
   > .cam-wrap
   > .manager
   > .manager-data
@@ -66,6 +75,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
+  > .header
   > .cam-wrap
   > .manager
   > .manager-data
@@ -76,6 +86,11 @@
   color: #999999 !important;
 }
 
-#live-appinion-root > .widget-wrap > .expand-true > .cam-wrap > .control {
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .header
+  > .cam-wrap
+  > .control {
   display: flex;
 }

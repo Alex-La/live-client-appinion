@@ -13,9 +13,9 @@ import ExpandTrue from "./expandTrue/ExpandTrue";
 const Widget = () => {
   const wrapRef = useRef();
 
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState(true);
   const [close, setClose] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
 
   const handleTransitionEnd = useCallback(() => {
     setExpanded(!expanded);
