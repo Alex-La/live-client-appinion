@@ -20,6 +20,7 @@
 
 #live-appinion-root button:disabled {
   background-color: #d5e4fe;
+  color: #72a0ea;
 }
 
 #live-appinion-root button:active {
