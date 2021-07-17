@@ -3,6 +3,9 @@
 }
 
 #live-appinion-root .text-field-root > input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
   box-sizing: border-box;
   background-color: #ffffff;
