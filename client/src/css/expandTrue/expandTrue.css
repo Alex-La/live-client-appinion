@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: calc(100% - 40px);
 }
 
 #live-appinion-root > .widget-wrap > .expand-true > .body {
