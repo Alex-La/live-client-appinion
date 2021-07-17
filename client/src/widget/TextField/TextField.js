@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./textField.css";
 
-const TextField = ({ label, type = "text" }) => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (e) => setValue(e.target.value);
-
+const TextField = ({
+  label,
+  type = "text",
+  value = "",
+  onChange,
+  name,
+  style,
+}) => {
   return (
-    <div className="text-field-root">
+    <div className="text-field-root" style={style}>
       <input
         id="text-field"
+        name={name}
         type={type}
-        placeholder=""
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       {label && <label htmlFor="text-field">{label}</label>}
     </div>
