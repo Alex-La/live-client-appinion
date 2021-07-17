@@ -21,15 +21,15 @@ const Widget = () => {
     setExpanded(!expanded);
   }, [expanded]);
 
-  useEffect(() => {
-    const ref = wrapRef.current;
-    if (ref) {
-      ref.addEventListener("transitionend", handleTransitionEnd, false);
-    }
-    return () => {
-      ref.removeEventListener("transitionend", handleTransitionEnd);
-    };
-  }, [handleTransitionEnd]);
+  // useEffect(() => {
+  //   const ref = wrapRef.current;
+  //   if (ref) {
+  //     ref.addEventListener("transitionend", handleTransitionEnd, false);
+  //   }
+  //   return () => {
+  //     ref.removeEventListener("transitionend", handleTransitionEnd);
+  //   };
+  // }, [handleTransitionEnd]);
 
   const handleExpand = () => {
     setExpand(!expand);

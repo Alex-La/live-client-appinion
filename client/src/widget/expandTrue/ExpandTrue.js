@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/expandTrue/expandTrue.css";
 
 import ControlAndManager from "./ControlAndManager";
+import Form from "./Form";
 import InfoMessage from "./InfoMessage";
 
 const ExpandTrue = ({ handleExpand, handleClose }) => {
@@ -15,6 +16,7 @@ const ExpandTrue = ({ handleExpand, handleClose }) => {
       </div>
       <div className="body">
         <InfoMessage />
+        <Form />
       </div>
       <div className="footer"></div>
     </div>

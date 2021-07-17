@@ -1,0 +1,51 @@
+#live-appinion-root .text-field-root {
+  position: relative;
+}
+
+#live-appinion-root .text-field-root > input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #9ba0b9;
+  border: 1px solid #e2e4ee;
+  border-radius: 5px;
+  height: 50px;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+label[for="text-field"] {
+  font-weight: 500;
+  font-size: 14px;
+  color: #9ba0b9;
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  background-color: white;
+  padding: 0 5px;
+  transition: 0.5s;
+}
+
+#live-appinion-root .text-field-root > input:focus {
+  border: 1px solid #4e7fce;
+  color: #4e7fce;
+}
+
+#live-appinion-root .text-field-root > input:focus ~ label[for="text-field"],
+#live-appinion-root
+  .text-field-root
+  > input:not([value=""])
+  ~ label[for="text-field"] {
+  font-size: 12px;
+  top: -8px;
+  color: #4e7fce;
+}
+
+#live-appinion-root
+  .text-field-root
+  > input:not(:focus)
+  ~ label[for="text-field"] {
+  color: #9ba0b9;
+}

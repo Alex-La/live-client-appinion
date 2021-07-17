@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 
-.widget-wrap {
+#live-appinion-root .widget-wrap {
   font-family: "Montserrat", sans-serif !important;
   position: fixed !important;
   background-color: white !important;
@@ -11,8 +11,12 @@
   transition: 0.5s;
 }
 
-.widget-wrap p {
+#live-appinion-root .widget-wrap p {
   margin: 0 !important;
   font-family: "Montserrat", sans-serif !important;
   color: #282828 !important;
+}
+
+#live-appinion-root :focus {
+  outline: none;
 }
