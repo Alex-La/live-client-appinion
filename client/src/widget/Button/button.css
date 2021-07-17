@@ -16,13 +16,16 @@
 
 #live-appinion-root button:hover {
   background-color: #72a0ea;
+  border: 1px solid #72a0ea;
 }
 
 #live-appinion-root button:disabled {
   background-color: #d5e4fe;
+  border: 1px solid #d5e4fe;
   color: #72a0ea;
 }
 
 #live-appinion-root button:active {
   background-color: #557ab6;
+  border: 1px solid #557ab6;
 }
