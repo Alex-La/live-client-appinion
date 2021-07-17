@@ -4,6 +4,7 @@ import "../../css/expandTrue/expandTrue.css";
 import ControlAndManager from "./ControlAndManager";
 import Form from "./Form";
 import InfoMessage from "./InfoMessage";
+import Logo from "./Logo";
 
 const ExpandTrue = ({ handleExpand, handleClose }) => {
   return (
@@ -18,7 +19,9 @@ const ExpandTrue = ({ handleExpand, handleClose }) => {
         <InfoMessage />
         <Form />
       </div>
-      <div className="footer"></div>
+      <div className="footer">
+        <Logo />
+      </div>
     </div>
   );
 };
