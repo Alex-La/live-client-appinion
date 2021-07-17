@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../css/expandTrue/form.css";
+import Button from "../Button/Button";
 import TextField from "../TextField/TextField";
 
 const Form = () => {
@@ -8,8 +9,13 @@ const Form = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("defloas");
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <TextField
         name={"name"}
         onChange={handleChange}
@@ -23,6 +29,10 @@ const Form = () => {
         label="E-mail"
         style={{ marginTop: 10 }}
       />
+
+      <Button type="submit" style={{ marginTop: 20 }}>
+        Продолжить
+      </Button>
     </form>
   );
 };

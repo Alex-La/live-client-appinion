@@ -1,0 +1,27 @@
+#live-appinion-root button {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif !important;
+  height: 50px;
+  background: #4e7fce;
+  border: 1px solid #4e7fce;
+  box-sizing: border-box;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+#live-appinion-root button:hover {
+  background-color: #72a0ea;
+}
+
+#live-appinion-root button:disabled {
+  background-color: #d5e4fe;
+}
+
+#live-appinion-root button:active {
+  background-color: #557ab6;
+}

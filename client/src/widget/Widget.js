@@ -19,7 +19,7 @@ const Widget = () => {
 
   const handleTransitionEnd = useCallback(
     (e) => {
-      if (e.target.htmlFor === "text-field") return;
+      if (e.target.className !== "widget-wrap") return;
       setExpanded(!expanded);
     },
     [expanded]
