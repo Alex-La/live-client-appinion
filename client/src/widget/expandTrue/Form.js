@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../../css/expandTrue/form.css";
-import Button from "../Button/Button";
-import TextField from "../TextField/TextField";
+import Button from "../../components/Button/Button";
+import TextField from "../../components/TextField/TextField";
+import CheckBox from "../../components/CheckBox/CheckBox";
 
 const Form = () => {
   const [form, setForm] = useState({ name: "", email: "" });
+  const [check, setCheck] = useState(false);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,6 +15,8 @@ const Form = () => {
     e.preventDefault();
     console.log("defloas");
   };
+
+  const handleChecked = (e) => setCheck(e.target.checked);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -33,6 +37,14 @@ const Form = () => {
       <Button type="submit" style={{ marginTop: 20 }}>
         Продолжить
       </Button>
+
+      <div className="agreement">
+        <CheckBox checked={check} onChange={handleChecked} />
+        <p>
+          Нажимая кнопку “Продолжить”, я даю согласие на обработку персональных
+          данных и ознакомлением с политикой конфиденциальности.
+        </p>
+      </div>
     </form>
   );
 };
