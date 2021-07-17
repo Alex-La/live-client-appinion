@@ -17,19 +17,23 @@ const Widget = () => {
   const [close, setClose] = useState(false);
   const [expanded, setExpanded] = useState(true);
 
-  const handleTransitionEnd = useCallback(() => {
-    setExpanded(!expanded);
-  }, [expanded]);
+  const handleTransitionEnd = useCallback(
+    (e) => {
+      if (e.target.htmlFor === "text-field") return;
+      setExpanded(!expanded);
+    },
+    [expanded]
+  );
 
-  // useEffect(() => {
-  //   const ref = wrapRef.current;
-  //   if (ref) {
-  //     ref.addEventListener("transitionend", handleTransitionEnd, false);
-  //   }
-  //   return () => {
-  //     ref.removeEventListener("transitionend", handleTransitionEnd);
-  //   };
-  // }, [handleTransitionEnd]);
+  useEffect(() => {
+    const ref = wrapRef.current;
+    if (ref) {
+      ref.addEventListener("transitionend", handleTransitionEnd, false);
+    }
+    return () => {
+      ref.removeEventListener("transitionend", handleTransitionEnd);
+    };
+  }, [handleTransitionEnd]);
 
   const handleExpand = () => {
     setExpand(!expand);
