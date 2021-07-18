@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import WidgetWrap from "./WidgetWrap";
 import ExpandFalse from "./ExpandFalse";
@@ -10,7 +10,14 @@ const Widget = () => {
   const [startLive, setStartLive] = useState(false);
 
   const handleExpand = () => setExpand(!expand);
-  const handleClose = () => setClose(true);
+  const handleClose = () => {
+    setClose(true);
+    setStartLive(false);
+  };
+
+  useEffect(() => {
+    if (!expand) setStartLive(false);
+  }, [expand]);
 
   if (close) return <Fragment />;
 
