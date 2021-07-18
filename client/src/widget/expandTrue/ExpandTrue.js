@@ -6,6 +6,7 @@ import Form from "./Form";
 import InfoMessage from "./InfoMessage";
 import Logo from "./Logo";
 import Chat from "../chat/Chat";
+import ChatForm from "../chat/Form";
 
 const ExpandTrue = ({ handleExpand, handleClose }) => {
   const [registrated, setRegistrated] = useState(true);
@@ -26,7 +27,10 @@ const ExpandTrue = ({ handleExpand, handleClose }) => {
       </div>
       <div className="body">
         {registrated ? (
-          <Chat />
+          <>
+            <Chat />
+            <ChatForm />
+          </>
         ) : (
           <>
             <InfoMessage />

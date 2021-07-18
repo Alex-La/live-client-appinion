@@ -1,12 +1,5 @@
-#live-appinion-root
-  > .widget-wrap
-  > .expand-true
-  > .body
-  > .appinion-chat
-  > .send-form {
+#live-appinion-root > .widget-wrap > .expand-true > .body > .send-form {
   position: sticky;
   display: flex;
-  bottom: 0;
-  width: 100%;
   background-color: white;
 }
