@@ -2,59 +2,38 @@ import React, {
   Fragment,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
 import "../css/widget.css";
 
+import WidgetWrap from "./WidgetWrap";
 import ExpandFalse from "./ExpandFalse";
 import ExpandTrue from "./expandTrue/ExpandTrue";
 
 const Widget = () => {
-  const wrapRef = useRef();
-
-  const [expand, setExpand] = useState(true);
+  const [expand, setExpand] = useState(false);
   const [close, setClose] = useState(false);
-  const [expanded, setExpanded] = useState(true);
+  const [startLive, setStartLive] = useState(false);
 
-  const handleTransitionEnd = useCallback(
-    (e) => {
-      if (e.target.className !== "widget-wrap") return;
-      setExpanded(!expanded);
-    },
-    [expanded]
-  );
-
-  useEffect(() => {
-    const ref = wrapRef.current;
-    if (ref) {
-      ref.addEventListener("transitionend", handleTransitionEnd, false);
-    }
-    return () => {
-      ref.removeEventListener("transitionend", handleTransitionEnd);
-    };
-  }, [handleTransitionEnd]);
-
-  const handleExpand = () => {
-    setExpand(!expand);
-  };
-
+  const handleExpand = () => setExpand(!expand);
   const handleClose = () => setClose(true);
 
   if (close) return <Fragment />;
 
   return (
-    <div
-      ref={wrapRef}
-      className="widget-wrap"
-      style={{ width: expand ? 450 : 322, height: expand ? 674 : 122 }}
-    >
-      {expand
-        ? expanded && (
-            <ExpandTrue handleExpand={handleExpand} handleClose={handleClose} />
-          )
-        : !expanded && <ExpandFalse handleExpand={handleExpand} />}
-    </div>
+    <WidgetWrap expand={expand} setExpand={setExpand} startLive={startLive}>
+      {expand ? (
+        <ExpandTrue
+          handleExpand={handleExpand}
+          handleClose={handleClose}
+          setStartLive={setStartLive}
+        />
+      ) : (
+        <ExpandFalse handleExpand={handleExpand} />
+      )}
+    </WidgetWrap>
   );
 };
 

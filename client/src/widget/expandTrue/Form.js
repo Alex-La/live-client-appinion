@@ -4,7 +4,7 @@ import Button from "../../components/Button/Button";
 import TextField from "../../components/TextField/TextField";
 import CheckBox from "../../components/CheckBox/CheckBox";
 
-const Form = () => {
+const Form = ({ setStartLive }) => {
   const [form, setForm] = useState({ name: "", email: "" });
   const [check, setCheck] = useState(false);
 
@@ -14,6 +14,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("defloas");
+    setStartLive(true);
   };
 
   const handleChecked = (e) => setCheck(e.target.checked);
