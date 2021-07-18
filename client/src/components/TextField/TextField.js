@@ -8,6 +8,7 @@ const TextField = ({
   onChange,
   name,
   style,
+  placeholder,
 }) => {
   return (
     <div className="text-field-root" style={style}>
@@ -17,6 +18,7 @@ const TextField = ({
         type={type}
         value={value}
         onChange={onChange}
+        placeholder={placeholder}
       />
       {label && <label htmlFor="text-field">{label}</label>}
     </div>

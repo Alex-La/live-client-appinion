@@ -24,14 +24,11 @@ const Widget = () => {
   return (
     <WidgetWrap expand={expand} setExpand={setExpand} startLive={startLive}>
       {expand ? (
-        <>
-          {startLive && <video controls />}
-          <ExpandTrue
-            handleExpand={handleExpand}
-            handleClose={handleClose}
-            setStartLive={setStartLive}
-          />
-        </>
+        <ExpandTrue
+          handleExpand={handleExpand}
+          handleClose={handleClose}
+          setStartLive={setStartLive}
+        />
       ) : (
         <ExpandFalse handleExpand={handleExpand} />
       )}

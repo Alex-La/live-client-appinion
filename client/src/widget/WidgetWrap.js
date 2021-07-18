@@ -59,10 +59,31 @@ const WidgetWrap = ({ expand, startLive, children }) => {
           display: startLive ? "flex" : "inline-block",
         }}
       >
-        {transitionEnd && children}
+        {transitionEnd && (
+          <>
+            {startLive && (
+              <div style={{ display: "flex", width: "100%" }}></div>
+              // <video style={isMobile ? videoStyles : {}} />
+            )}
+            {children}
+          </>
+        )}
       </div>
     </>
   );
+};
+
+const videoStyles = {
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  margin: "auto",
+  objectFit: "cover",
+  width: "100%",
+  height: "100%",
+  zIndex: -1,
 };
 
 export default WidgetWrap;
