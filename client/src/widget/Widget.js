@@ -1,12 +1,4 @@
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import "../css/widget.css";
+import React, { Fragment, useState } from "react";
 
 import WidgetWrap from "./WidgetWrap";
 import ExpandFalse from "./ExpandFalse";
@@ -25,11 +17,14 @@ const Widget = () => {
   return (
     <WidgetWrap expand={expand} setExpand={setExpand} startLive={startLive}>
       {expand ? (
-        <ExpandTrue
-          handleExpand={handleExpand}
-          handleClose={handleClose}
-          setStartLive={setStartLive}
-        />
+        <>
+          {startLive && <video />}
+          <ExpandTrue
+            handleExpand={handleExpand}
+            handleClose={handleClose}
+            setStartLive={setStartLive}
+          />
+        </>
       ) : (
         <ExpandFalse handleExpand={handleExpand} />
       )}

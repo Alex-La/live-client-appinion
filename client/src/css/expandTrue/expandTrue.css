@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: calc(100% - 40px);
+  max-width: 450px;
 }
 
 #live-appinion-root > .widget-wrap > .expand-true > .body {

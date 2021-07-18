@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import "../css/widget.css";
 
 const WidgetWrap = ({ expand, startLive, children }) => {
   const wrapRef = useRef();
@@ -46,10 +47,16 @@ const WidgetWrap = ({ expand, startLive, children }) => {
         style={{
           bottom: isMobile ? (expand ? 0 : 10) : 40,
           right: isMobile ? (expand ? 0 : 15) : 50,
-          left: isMobile && expand ? 0 : width - (expand ? 500 : 372),
+          left:
+            isMobile && expand
+              ? 0
+              : startLive
+              ? 50
+              : width - (expand ? 500 : 372),
           height: expand ? (isMobile ? window.innerHeight : 674) : 122,
           transform: isMobile ? (expand ? "scale(1)" : "scale(0.7)") : "none",
           transformOrigin: "bottom right",
+          display: startLive ? "flex" : "inline-block",
         }}
       >
         {transitionEnd && children}
