@@ -1,0 +1,37 @@
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .panding-message {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background: #4e7fce19;
+  border-radius: 10px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .panding-message
+  > .title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .panding-message
+  > .panding {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
