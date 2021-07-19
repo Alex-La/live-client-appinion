@@ -4,11 +4,11 @@ import "../../css/chat/chat.css";
 import FormatMessage from "./messages/FormatMessage";
 import PandingMessage from "./messages/PandingMessage";
 
-const Chat = () => {
+const Chat = ({ data }) => {
   return (
     <div className="appinion-chat">
-      <FormatMessage />
-      <PandingMessage />
+      <FormatMessage color={data.mainColor} />
+      <PandingMessage color={data.mainColor} />
     </div>
   );
 };

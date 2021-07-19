@@ -8,8 +8,8 @@ import Logo from "./Logo";
 import Chat from "../chat/Chat";
 import ChatForm from "../chat/Form";
 
-const ExpandTrue = ({ handleExpand, handleClose }) => {
-  const [registrated, setRegistrated] = useState(true);
+const ExpandTrue = ({ handleExpand, handleClose, data }) => {
+  const [registrated, setRegistrated] = useState(false);
   const [form, setForm] = useState({ name: "", email: "" });
 
   const handleSubmit = (e) => {
@@ -21,6 +21,7 @@ const ExpandTrue = ({ handleExpand, handleClose }) => {
     <div className="expand-true">
       <div className="header">
         <ControlAndManager
+          data={data}
           handleExpand={handleExpand}
           handleClose={handleClose}
         />
@@ -28,13 +29,18 @@ const ExpandTrue = ({ handleExpand, handleClose }) => {
       <div className="body">
         {registrated ? (
           <>
-            <Chat />
-            <ChatForm />
+            <Chat data={data} />
+            <ChatForm color={data.mainColor} />
           </>
         ) : (
           <>
-            <InfoMessage />
-            <Form form={form} setForm={setForm} handleSubmit={handleSubmit} />
+            <InfoMessage color={data.mainColor} />
+            <Form
+              form={form}
+              setForm={setForm}
+              handleSubmit={handleSubmit}
+              color={data.mainColor}
+            />
           </>
         )}
       </div>

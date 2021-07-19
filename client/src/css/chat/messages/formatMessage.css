@@ -6,7 +6,7 @@
   > .format-message {
   margin: 20px;
   padding: 20px;
-  background: #4e7fce19;
+  background: var(--color);
   border-radius: 10px;
   text-align: center;
 }
@@ -32,8 +32,8 @@
   > .start-video {
   cursor: pointer;
   margin-top: 20px;
-  background-color: #4e7fce;
-  box-shadow: 0px 8px 18px #4e7fce3f;
+  background-color: var(--color);
+  box-shadow: 0px 8px 18px var(--shadow);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@
   > .keep-chat {
   cursor: pointer;
   margin-top: 20px;
-  border: 1px solid #4e7fce;
+  border: 1px solid var(--color);
   box-sizing: border-box;
   border-radius: 5px;
   display: flex;

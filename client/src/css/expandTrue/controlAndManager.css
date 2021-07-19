@@ -52,7 +52,7 @@
   position: absolute;
   width: 7px;
   height: 7px;
-  background-color: #4e7fce;
+  background-color: var(--color);
   border: 3px solid #ffffff;
   border-radius: 50px;
   right: -1px;

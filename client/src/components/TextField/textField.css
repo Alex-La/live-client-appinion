@@ -33,8 +33,8 @@ label[for="text-field"] {
 }
 
 #live-appinion-root .text-field-root > input:focus {
-  border: 1px solid #4e7fce;
-  color: #4e7fce;
+  border: 1px solid var(--color);
+  color: var(--color);
 }
 
 #live-appinion-root .text-field-root > input:focus ~ label[for="text-field"],
@@ -44,7 +44,7 @@ label[for="text-field"] {
   ~ label[for="text-field"] {
   font-size: 12px;
   top: -8px;
-  color: #4e7fce;
+  color: var(--color);
 }
 
 #live-appinion-root

@@ -4,11 +4,14 @@ import "../../css/chat/form.css";
 import TextField from "../../components/TextField/TextField";
 import Button from "../../components/Button/Button";
 
-const Form = () => {
+const Form = ({ color }) => {
   return (
     <form className="send-form">
-      <TextField placeholder={"Ваше сообщение"} style={{ width: "100%" }} />
-      <Button style={{ width: 50, marginLeft: 20 }}>
+      <TextField
+        placeholder={"Ваше сообщение"}
+        style={{ width: "100%", "--color": color }}
+      />
+      <Button style={{ width: 50, marginLeft: 20 }} color={color}>
         <svg
           width="11"
           height="16"

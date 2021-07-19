@@ -2,10 +2,10 @@
   cursor: pointer;
   font-family: "Montserrat", sans-serif !important;
   height: 50px;
-  background: #4e7fce;
-  border: 1px solid #4e7fce;
+  background: var(--default-color);
+  border: 1px solid var(--default-color);
   box-sizing: border-box;
-  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 3px 6px var(--shadow-color);
   border-radius: 5px;
   font-weight: 600;
   font-size: 14px;
@@ -15,17 +15,17 @@
 }
 
 #live-appinion-root button:hover {
-  background-color: #72a0ea;
-  border: 1px solid #72a0ea;
+  background-color: var(--hover-color);
+  border: 1px solid var(--hover-color);
 }
 
 #live-appinion-root button:disabled {
-  background-color: #d5e4fe;
-  border: 1px solid #d5e4fe;
-  color: #72a0ea;
+  background-color: var(--disabled-back-color);
+  border: 1px solid var(--disabled-back-color);
+  color: var(--disabled-color);
 }
 
 #live-appinion-root button:active {
-  background-color: #557ab6;
-  border: 1px solid #557ab6;
+  background-color: var(--active-color);
+  border: 1px solid var(--active-color);
 }

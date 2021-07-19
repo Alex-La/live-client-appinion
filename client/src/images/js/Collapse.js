@@ -1,6 +1,6 @@
 import React from "react";
 
-const Collapse = ({ handleExpand }) => {
+const Collapse = ({ handleExpand, color }) => {
   return (
     <svg
       onClick={handleExpand}
@@ -11,7 +11,7 @@ const Collapse = ({ handleExpand }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="16" height="1.45455" rx="0.727273" fill="#4E7FCE" />
+      <rect width="16" height="1.45455" rx="0.727273" fill={color} />
     </svg>
   );
 };

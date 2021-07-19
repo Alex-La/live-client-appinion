@@ -4,7 +4,7 @@ import Button from "../../components/Button/Button";
 import TextField from "../../components/TextField/TextField";
 import CheckBox from "../../components/CheckBox/CheckBox";
 
-const Form = ({ setStartLive, form, setForm, handleSubmit }) => {
+const Form = ({ form, setForm, handleSubmit, color }) => {
   const [check, setCheck] = useState(false);
 
   const handleChange = (e) =>
@@ -19,16 +19,17 @@ const Form = ({ setStartLive, form, setForm, handleSubmit }) => {
         onChange={handleChange}
         value={form.name}
         label="Ваше имя"
+        style={{ "--color": color }}
       />
       <TextField
         name={"email"}
         onChange={handleChange}
         value={form.email}
         label="E-mail"
-        style={{ marginTop: 10 }}
+        style={{ marginTop: 10, "--color": color }}
       />
 
-      <Button type="submit" style={{ marginTop: 20 }}>
+      <Button type="submit" style={{ marginTop: 20 }} color={color}>
         Продолжить
       </Button>
 

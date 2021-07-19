@@ -1,9 +1,31 @@
 import React from "react";
 import "./button.css";
 
-const Button = ({ style, children, type, onClick }) => {
+import { LightenDarkenColor } from "../../utils";
+
+const Button = ({
+  style,
+  children,
+  type,
+  onClick,
+  color,
+  disabled = false,
+}) => {
   return (
-    <button type={type} onClick={onClick} style={style}>
+    <button
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
+      style={{
+        ...style,
+        "--shadow-color": `${color}3F`,
+        "--default-color": color,
+        "--hover-color": LightenDarkenColor(color, 20),
+        "--disabled-back-color": LightenDarkenColor(color, 60),
+        "--disabled-color": LightenDarkenColor(color, -20),
+        "--active-color": LightenDarkenColor(color, -10),
+      }}
+    >
       {children}
     </button>
   );

@@ -5,6 +5,8 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #live-appinion-root
