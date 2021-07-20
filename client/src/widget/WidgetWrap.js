@@ -1,11 +1,35 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../css/widget.css";
 
-const WidgetWrap = ({ expand, startLive, children }) => {
+import Peer from "peerjs";
+
+const WidgetWrap = ({ expand, startLive, children, data }) => {
+  const videoRef = useRef();
   const wrapRef = useRef();
   const [transitionEnd, setTransitionEnd] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const peer = new Peer("candy-shop-one", {
+      host: "localhost",
+      port: 4000,
+      path: "/peerjs/appinion",
+    });
+    peer.on("open", (id) => {
+      console.log(id);
+    });
+
+    const coon = peer.connect("candy-shop-two");
+
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+      const call = peer.call("candy-shop-two", stream);
+      call.on("stream", (stream) => {
+        console.log(stream);
+        videoRef.current.srcObject = stream;
+      });
+    });
+  }, [data]);
 
   useEffect(() => {
     if (width <= 768) setIsMobile(true);
@@ -61,10 +85,9 @@ const WidgetWrap = ({ expand, startLive, children }) => {
       >
         {transitionEnd && (
           <>
-            {startLive && (
-              <div style={{ display: "flex", width: "100%" }}></div>
-              // <video style={isMobile ? videoStyles : {}} />
-            )}
+            <div style={{ display: "flex", width: "100%" }}></div>
+            <video ref={videoRef} style={videoStyles} autoPlay />
+
             {children}
           </>
         )}

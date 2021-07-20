@@ -10,7 +10,7 @@ const socket = io("https://api.appinion.digital");
 const Widget = ({ token }) => {
   const [data, setData] = useState(null);
 
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState(true);
   const [close, setClose] = useState(false);
   const [startLive, setStartLive] = useState(false);
 
@@ -28,10 +28,15 @@ const Widget = ({ token }) => {
     if (!expand) setStartLive(false);
   }, [expand]);
 
-  if (close) return <Fragment />;
+  if (close || !data) return <Fragment />;
 
   return (
-    <WidgetWrap expand={expand} setExpand={setExpand} startLive={startLive}>
+    <WidgetWrap
+      expand={expand}
+      setExpand={setExpand}
+      startLive={startLive}
+      data={data}
+    >
       {expand ? (
         <ExpandTrue
           handleExpand={handleExpand}
