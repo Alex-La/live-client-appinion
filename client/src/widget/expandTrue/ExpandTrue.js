@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
 import ControlAndManager from "./ControlAndManager";
@@ -8,14 +8,30 @@ import Logo from "./Logo";
 import Chat from "../chat/Chat";
 import ChatForm from "../chat/Form";
 
-const ExpandTrue = ({ handleExpand, handleClose, data }) => {
+const ExpandTrue = ({ handleExpand, handleClose, data, socket }) => {
+  const [managerId, setManagerId] = useState(null);
   const [registrated, setRegistrated] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "" });
+  const [form, setForm] = useState({
+    host: data.host,
+    time: "12:37",
+    name: "",
+    email: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegistrated(true);
   };
+
+  useEffect(() => {
+    if (registrated) socket.emit("user", form);
+  }, [socket, form, registrated]);
+
+  useEffect(() => {
+    socket.on("managerId", (id) => {
+      setManagerId(id);
+    });
+  }, [socket]);
 
   return (
     <div className="expand-true">
@@ -29,8 +45,12 @@ const ExpandTrue = ({ handleExpand, handleClose, data }) => {
       <div className="body">
         {registrated ? (
           <>
-            <Chat data={data} />
-            <ChatForm color={data.mainColor} />
+            <Chat data={data} socket={socket} />
+            <ChatForm
+              color={data.mainColor}
+              socket={socket}
+              managerId={managerId}
+            />
           </>
         ) : (
           <>

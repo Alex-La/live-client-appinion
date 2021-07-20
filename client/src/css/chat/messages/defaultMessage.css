@@ -1,0 +1,92 @@
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message {
+  display: flex;
+  padding-top: 30px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .icon-wrap
+  > p {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .icon-wrap
+  > img {
+  border-radius: 50px;
+  border: 1px solid var(--color);
+  margin-bottom: 2px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .icon-wrap
+  > div {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color);
+  background-color: white;
+  border-radius: 50px;
+  margin-bottom: 2px;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .text {
+  background-color: var(--color);
+  border-radius: 10px;
+  position: relative;
+  padding: 12px 20px;
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .body
+  > .appinion-chat
+  > .message
+  > .text
+  > .torch {
+  position: absolute;
+  top: 0;
+}

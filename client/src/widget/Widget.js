@@ -4,6 +4,9 @@ import WidgetWrap from "./WidgetWrap";
 import ExpandFalse from "./ExpandFalse";
 import ExpandTrue from "./expandTrue/ExpandTrue";
 
+import io from "socket.io-client";
+const socket = io("https://api.appinion.digital");
+
 const Widget = ({ token }) => {
   const [data, setData] = useState(null);
 
@@ -34,6 +37,7 @@ const Widget = ({ token }) => {
           handleExpand={handleExpand}
           handleClose={handleClose}
           data={data}
+          socket={socket}
         />
       ) : (
         <ExpandFalse handleExpand={handleExpand} />
