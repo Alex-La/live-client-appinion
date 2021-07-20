@@ -19,7 +19,6 @@ const LiveVideo = ({ socket }) => {
       },
       host: "api.appinion.digital",
       secure: true,
-      port: 4000,
       path: "/peerjs/appinion",
     });
 
