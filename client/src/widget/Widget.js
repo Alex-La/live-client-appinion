@@ -36,6 +36,7 @@ const Widget = ({ token }) => {
       setExpand={setExpand}
       startLive={startLive}
       data={data}
+      socket={socket}
     >
       {expand ? (
         <ExpandTrue

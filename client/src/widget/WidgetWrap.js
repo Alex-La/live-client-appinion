@@ -1,35 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../css/widget.css";
 
-import Peer from "peerjs";
+import LiveVideo from "./video/LiveVideo";
 
-const WidgetWrap = ({ expand, startLive, children, data }) => {
-  const videoRef = useRef();
+const WidgetWrap = ({ expand, startLive, children, socket }) => {
   const wrapRef = useRef();
   const [transitionEnd, setTransitionEnd] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const peer = new Peer("candy-shop-one", {
-      host: "peerjs-server.herokuapp.com",
-      secure: true,
-      port: 443,
-    });
-    peer.on("open", (id) => {
-      console.log(id);
-    });
-
-    const coon = peer.connect("candy-shop-two");
-
-    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-      const call = peer.call("candy-shop-two", stream);
-      call.on("stream", (stream) => {
-        console.log(stream);
-        videoRef.current.srcObject = stream;
-      });
-    });
-  }, [data]);
 
   useEffect(() => {
     if (width <= 768) setIsMobile(true);
@@ -86,7 +64,7 @@ const WidgetWrap = ({ expand, startLive, children, data }) => {
         {transitionEnd && (
           <>
             <div style={{ display: "flex", width: "100%" }}></div>
-            <video ref={videoRef} style={videoStyles} autoPlay />
+            <LiveVideo socket={socket} />
 
             {children}
           </>
@@ -94,19 +72,6 @@ const WidgetWrap = ({ expand, startLive, children, data }) => {
       </div>
     </>
   );
-};
-
-const videoStyles = {
-  position: "absolute",
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  margin: "auto",
-  objectFit: "cover",
-  width: "100%",
-  height: "100%",
-  zIndex: -1,
 };
 
 export default WidgetWrap;
