@@ -13,7 +13,7 @@ const WidgetWrap = ({ expand, startLive, children, data }) => {
   useEffect(() => {
     const peer = new Peer("candy-shop-one", {
       host: "api.appinion.digital",
-      port: 4000,
+      // port: 4000,
       path: "/peerjs/appinion",
     });
     peer.on("open", (id) => {
