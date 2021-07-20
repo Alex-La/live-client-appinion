@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../css/chat/form.css";
 
 import TextField from "../../components/TextField/TextField";
