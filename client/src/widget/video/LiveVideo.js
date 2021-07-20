@@ -17,8 +17,8 @@ const LiveVideo = ({ socket }) => {
           { urls: "stun:www.stun.appinion.digital:3478" },
         ],
       },
-      host: "https://api.appinion.digital",
-      secure: false,
+      host: "api.appinion.digital",
+      secure: true,
       path: "/peerjs/appinion",
     });
 
