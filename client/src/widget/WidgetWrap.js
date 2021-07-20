@@ -12,9 +12,9 @@ const WidgetWrap = ({ expand, startLive, children, data }) => {
 
   useEffect(() => {
     const peer = new Peer("candy-shop-one", {
-      host: "45.80.69.205",
-      port: 4000,
-      path: "/peerjs/appinion",
+      host: "peerjs-server.herokuapp.com",
+      secure: true,
+      port: 443,
     });
     peer.on("open", (id) => {
       console.log(id);
