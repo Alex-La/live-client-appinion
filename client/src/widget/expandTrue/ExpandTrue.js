@@ -8,8 +8,14 @@ import Logo from "./Logo";
 import Chat from "../chat/Chat";
 import ChatForm from "../chat/Form";
 
-const ExpandTrue = ({ handleExpand, handleClose, data, socket }) => {
-  const [managerId, setManagerId] = useState(null);
+const ExpandTrue = ({
+  handleExpand,
+  handleClose,
+  data,
+  socket,
+  managerId,
+  setManagerId,
+}) => {
   const [registrated, setRegistrated] = useState(false);
   const [form, setForm] = useState({
     host: data.host,

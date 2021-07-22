@@ -1,9 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Peer from "peerjs";
 
-const LiveVideo = ({ socket }) => {
+const LiveVideo = ({ socket, managerId, isMobile }) => {
   const videoRef = useRef();
+
+  const [stream, setStream] = useState(null);
+
+  useEffect(() => {
+    if (stream && videoRef.current) {
+      videoRef.current.srcObject = stream;
+    }
+  }, [stream]);
 
   useEffect(() => {
     const peer = new Peer({
@@ -23,22 +31,34 @@ const LiveVideo = ({ socket }) => {
     });
 
     peer.on("open", (id) => {
-      console.log(id);
+      socket.emit("answer", managerId, id);
     });
+
     peer.on("error", console.log);
 
-    socket.on("offer", (id) => {
-      navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-        const call = peer.call(id, stream);
-        call.on("stream", (str) => {
-          console.log(str);
-          videoRef.current.srcObject = str;
-        });
+    peer.on("call", (call) => {
+      call.answer();
+      call.on("stream", (stream) => {
+        setStream(stream);
       });
     });
-  }, []);
+    // socket.on("offer", (id) => {
+    //   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+    //     const call = peer.call(id, stream);
+    //     call.on("stream", (str) => {
+    //       videoRef.current.srcObject = str;
+    //     });
+    //   });
+    // });
+  }, [socket]);
 
-  return <video ref={videoRef} style={videoStyles} autoPlay />;
+  return (
+    <video
+      ref={videoRef}
+      style={isMobile ? videoStyles : { objectFit: "cover" }}
+      autoPlay
+    />
+  );
 };
 
 const videoStyles = {

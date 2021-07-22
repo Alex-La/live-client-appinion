@@ -9,6 +9,7 @@ const socket = io("https://api.appinion.digital");
 
 const Widget = ({ token }) => {
   const [data, setData] = useState(null);
+  const [managerId, setManagerId] = useState(null);
 
   const [expand, setExpand] = useState(true);
   const [close, setClose] = useState(false);
@@ -37,6 +38,7 @@ const Widget = ({ token }) => {
       startLive={startLive}
       data={data}
       socket={socket}
+      managerId={managerId}
     >
       {expand ? (
         <ExpandTrue
@@ -44,6 +46,8 @@ const Widget = ({ token }) => {
           handleClose={handleClose}
           data={data}
           socket={socket}
+          managerId={managerId}
+          setManagerId={setManagerId}
         />
       ) : (
         <ExpandFalse handleExpand={handleExpand} />

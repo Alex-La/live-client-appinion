@@ -3,11 +3,18 @@ import "../css/widget.css";
 
 import LiveVideo from "./video/LiveVideo";
 
-const WidgetWrap = ({ expand, startLive, children, socket }) => {
+const WidgetWrap = ({ expand, children, socket, managerId }) => {
   const wrapRef = useRef();
   const [transitionEnd, setTransitionEnd] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
+  const [startLive, setStartLive] = useState(false);
+
+  useEffect(() => {
+    socket.on("offer", () => {
+      setStartLive(true);
+    });
+  }, [socket]);
 
   useEffect(() => {
     if (width <= 768) setIsMobile(true);
@@ -64,7 +71,13 @@ const WidgetWrap = ({ expand, startLive, children, socket }) => {
         {transitionEnd && (
           <>
             <div style={{ display: "flex", width: "100%" }}></div>
-            <LiveVideo socket={socket} />
+            {startLive && (
+              <LiveVideo
+                socket={socket}
+                managerId={managerId}
+                isMobile={isMobile}
+              />
+            )}
 
             {children}
           </>
