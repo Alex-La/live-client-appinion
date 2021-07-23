@@ -9,7 +9,7 @@ import ChatForm from "../chat/Form";
 import Logo from "./Logo";
 
 const ExpandTrue = () => {
-  const [reg, setReg] = useState(true);
+  const [reg, setReg] = useState(false);
   const [form, setForm] = useState({ name: "", email: "" });
 
   const handleSubmit = (e) => {
