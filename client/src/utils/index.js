@@ -1,3 +1,5 @@
+import { query, apiEndpoint } from "./constants";
+
 export function LightenDarkenColor(col, amt) {
   try {
     var usePound = false;
@@ -29,3 +31,24 @@ export function LightenDarkenColor(col, amt) {
     console.log(e);
   }
 }
+
+export const getData = async (token) => {
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        query,
+        variables: { id: token },
+      }),
+    });
+    const data = await response.json();
+    console.log(data.data.videoWidget);
+    return data.data.videoWidget;
+  } catch (e) {
+    console.log(e);
+  }
+};

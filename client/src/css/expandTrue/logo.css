@@ -9,10 +9,6 @@
   > .expand-true
   > .footer
   > .appinion-logo
-  > p {
-  color: #999999 !important;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  margin-right: 10px !important;
+  > img {
+  margin-left: 10px;
 }

@@ -1,6 +1,7 @@
 #live-appinion-root > .widget-wrap > .expand-false {
-  padding: 20px;
   cursor: pointer;
+  width: 100%;
+  padding: 20px;
 }
 
 #live-appinion-root > .widget-wrap > .expand-false > .live {
@@ -19,13 +20,6 @@
   margin-left: 6px;
 }
 
-#live-appinion-root > .widget-wrap > .expand-false > .live > .live-text {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.05em;
-}
-
 #live-appinion-root > .widget-wrap > .expand-false > .live > .live-open {
   width: 30px;
   height: 30px;
@@ -35,18 +29,4 @@
   align-items: center;
   justify-content: center;
   margin-left: auto;
-}
-
-#live-appinion-root > .widget-wrap > .expand-false > .info {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  margin-top: 10px !important;
-}
-
-#live-appinion-root > .widget-wrap > .expand-false > .timing {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14.63px;
-  margin-top: 10px !important;
 }

@@ -1,0 +1,11 @@
+#live-appinion-root > .widget-wrap p {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0 !important;
+  margin-top: var(--margin-top) !important;
+  font-weight: var(--weight) !important;
+  font-size: var(--size) !important;
+  line-height: var(--line-height) !important;
+  color: var(--color) !important;
+  letter-spacing: var(--letter-spacing) !important;
+  font-style: var(--style) !important;
+}

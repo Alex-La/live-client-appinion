@@ -1,72 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
 import ControlAndManager from "./ControlAndManager";
-import Form from "./Form";
 import InfoMessage from "./InfoMessage";
-import Logo from "./Logo";
+import Form from "./Form";
 import Chat from "../chat/Chat";
 import ChatForm from "../chat/Form";
+import Logo from "./Logo";
 
-const ExpandTrue = ({
-  handleExpand,
-  handleClose,
-  data,
-  socket,
-  managerId,
-  setManagerId,
-}) => {
-  const [registrated, setRegistrated] = useState(false);
-  const [form, setForm] = useState({
-    host: data.host,
-    time: "12:37",
-    name: "",
-    email: "",
-  });
+const ExpandTrue = () => {
+  const [reg, setReg] = useState(true);
+  const [form, setForm] = useState({ name: "", email: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRegistrated(true);
+    setReg(true);
   };
-
-  useEffect(() => {
-    if (registrated) socket.emit("user", form);
-  }, [socket, form, registrated]);
-
-  useEffect(() => {
-    socket.on("managerId", (id) => {
-      setManagerId(id);
-    });
-  }, [socket]);
 
   return (
     <div className="expand-true">
       <div className="header">
-        <ControlAndManager
-          data={data}
-          handleExpand={handleExpand}
-          handleClose={handleClose}
-        />
+        <ControlAndManager />
       </div>
       <div className="body">
-        {registrated ? (
+        {reg ? (
           <>
-            <Chat data={data} socket={socket} />
-            <ChatForm
-              color={data.mainColor}
-              socket={socket}
-              managerId={managerId}
-            />
+            <Chat />
+            <ChatForm />
           </>
         ) : (
           <>
-            <InfoMessage color={data.mainColor} />
-            <Form
-              form={form}
-              setForm={setForm}
-              handleSubmit={handleSubmit}
-              color={data.mainColor}
-            />
+            <InfoMessage />
+            <Form form={form} setForm={setForm} handleSubmit={handleSubmit} />
           </>
         )}
       </div>

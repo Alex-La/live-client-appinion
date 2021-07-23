@@ -3,11 +3,11 @@ import "./checkBox.css";
 
 import Check from "../../images/js/Check";
 
-const CheckBox = ({ checked = false, onChange }) => {
+const CheckBox = ({ checked = false, onChange, color }) => {
   return (
     <div className="appinion-checkbox-root">
       <label htmlFor="appinion-checkbox" className="appinion-checkbox">
-        {checked && <Check />}
+        {checked && <Check color={color} />}
       </label>
       <input
         id="appinion-checkbox"

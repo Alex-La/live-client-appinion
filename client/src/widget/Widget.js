@@ -1,107 +1,39 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-import WidgetWrap from "./WidgetWrap";
-import ExpandFalse from "./ExpandFalse";
-import ExpandTrue from "./expandTrue/ExpandTrue";
+import ControlContext from "../context/ControlContext";
+import { getData } from "../utils";
 
-import io from "socket.io-client";
-const socket = io("https://api.appinion.digital");
+import WidgetWrap from "./WidgetWrap";
 
 const Widget = ({ token }) => {
   const [data, setData] = useState(null);
-  const [managerId, setManagerId] = useState(null);
-
-  const [expand, setExpand] = useState(true);
-  const [close, setClose] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [startLive, setStartLive] = useState(false);
-
-  const handleExpand = () => setExpand(!expand);
-  const handleClose = () => {
-    setClose(true);
-    setStartLive(false);
-  };
+  const [expand, setExpand] = useState(false);
+  const [close, setClose] = useState(false);
 
   useEffect(() => {
-    getData(token).then((data) => setData(data.data.videoWidget));
+    getData(token).then((data) => setData(data));
   }, [token]);
 
-  useEffect(() => {
-    if (!expand) setStartLive(false);
-  }, [expand]);
+  const controlContextValue = {
+    data,
+    startLive,
+    setStartLive,
+    expand,
+    setExpand,
+    setClose,
+    isMobile,
+    setIsMobile,
+  };
 
-  if (close || !data) return <Fragment />;
+  if (!data || close) return <Fragment />;
 
   return (
-    <WidgetWrap
-      expand={expand}
-      setExpand={setExpand}
-      startLive={startLive}
-      data={data}
-      socket={socket}
-      managerId={managerId}
-    >
-      {expand ? (
-        <ExpandTrue
-          handleExpand={handleExpand}
-          handleClose={handleClose}
-          data={data}
-          socket={socket}
-          managerId={managerId}
-          setManagerId={setManagerId}
-        />
-      ) : (
-        <ExpandFalse handleExpand={handleExpand} />
-      )}
-    </WidgetWrap>
+    <ControlContext.Provider value={controlContextValue}>
+      <WidgetWrap />
+    </ControlContext.Provider>
   );
 };
 
 export default Widget;
-
-const query = `query videoWidget($id: String!) {
-  videoWidget(id: $id) {
-     _id
-    projectId
-    userId
-		type
-		location
-		staButton
-		staText
-		staLink
-		name
-		position
-		mainColor
-		textColor
-		utmLabel
-    host
-  	videos {
-      id
-      filename
-      mimetype
-      path
-    }
-    createdAt
-    tariffType
-  }
-}`;
-
-const getData = async (token) => {
-  try {
-    const response = await fetch("https://api.appinion.digital/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        query,
-        variables: { id: token },
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (e) {
-    console.log(e);
-  }
-};

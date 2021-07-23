@@ -1,30 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../css/chat/form.css";
 
 import TextField from "../../components/TextField/TextField";
 import Button from "../../components/Button/Button";
 
-const Form = ({ color, socket, managerId }) => {
+import ControlContext from "../../context/ControlContext";
+
+const Form = () => {
+  const { data } = useContext(ControlContext);
+
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSend = (e) => {
     e.preventDefault();
-    if (message.length !== 0) {
-      socket.emit("message", { message, from: "user" }, managerId);
-      setMessage("");
-    }
   };
 
   return (
     <form className="send-form" onSubmit={handleSend}>
       <TextField
         placeholder={"Ваше сообщение"}
-        style={{ width: "100%", "--color": color }}
+        style={{ width: "100%", "--color": data.mainColor }}
         onChange={handleChange}
         value={message}
       />
-      <Button style={{ width: 50, marginLeft: 20 }} color={color} type="submit">
+      <Button
+        style={{ width: 50, marginLeft: 20 }}
+        color={data.mainColor}
+        type="submit"
+      >
         <svg
           width="11"
           height="16"

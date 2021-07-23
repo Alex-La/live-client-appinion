@@ -8,22 +8,13 @@
   z-index: 99998 !important;
 }
 
-#live-appinion-root .widget-wrap {
-  font-family: "Montserrat", sans-serif !important;
-  background-color: #ffffff !important;
+#live-appinion-root > .widget-wrap {
+  display: flex;
+  flex-direction: row-reverse;
   position: fixed !important;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  transition: 0.5s;
+  background-color: white !important;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 5px !important;
   z-index: 99999 !important;
-}
-
-#live-appinion-root .widget-wrap p {
-  margin: 0 !important;
-  font-family: "Montserrat", sans-serif !important;
-  color: #282828 !important;
-}
-
-#live-appinion-root :focus {
-  outline: none;
+  transition: 0.5s;
 }

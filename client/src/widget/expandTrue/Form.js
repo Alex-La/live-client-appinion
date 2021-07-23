@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../css/expandTrue/form.css";
+
+import ControlContext from "../../context/ControlContext";
+
 import Button from "../../components/Button/Button";
 import TextField from "../../components/TextField/TextField";
 import CheckBox from "../../components/CheckBox/CheckBox";
+import Text from "../../components/Text/Text";
 
-const Form = ({ form, setForm, handleSubmit, color }) => {
+const Form = ({ form, setForm, handleSubmit }) => {
+  const { data } = useContext(ControlContext);
+
   const [check, setCheck] = useState(false);
 
   const handleChange = (e) =>
@@ -19,26 +25,30 @@ const Form = ({ form, setForm, handleSubmit, color }) => {
         onChange={handleChange}
         value={form.name}
         label="Ваше имя"
-        style={{ "--color": color }}
+        style={{ "--color": data.mainColor }}
       />
       <TextField
         name={"email"}
         onChange={handleChange}
         value={form.email}
         label="E-mail"
-        style={{ marginTop: 10, "--color": color }}
+        style={{ marginTop: 10, "--color": data.mainColor }}
       />
 
-      <Button type="submit" style={{ marginTop: 20 }} color={color}>
+      <Button type="submit" style={{ marginTop: 20 }} color={data.mainColor}>
         Продолжить
       </Button>
 
       <div className="agreement">
-        <CheckBox checked={check} onChange={handleChecked} />
-        <p>
+        <CheckBox
+          checked={check}
+          onChange={handleChecked}
+          color={data.mainColor}
+        />
+        <Text size={"12px"} lineHeight={"18px"} color={"#999999"}>
           Нажимая кнопку “Продолжить”, я даю согласие на обработку персональных
           данных и ознакомлением с политикой конфиденциальности.
-        </p>
+        </Text>
       </div>
     </form>
   );

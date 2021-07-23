@@ -11,43 +11,8 @@
   > .expand-true
   > .body
   > .info-message
-  > .title {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 22px;
-  margin-bottom: 10px !important;
-}
-
-#live-appinion-root
-  > .widget-wrap
-  > .expand-true
-  > .body
-  > .info-message
-  > .description {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-}
-
-#live-appinion-root
-  > .widget-wrap
-  > .expand-true
-  > .body
-  > .info-message
   > .message {
   display: flex;
   justify-content: center;
   margin-top: 13px;
-}
-
-#live-appinion-root
-  > .widget-wrap
-  > .expand-true
-  > .body
-  > .info-message
-  > .message
-  > p {
-  font-style: italic;
-  font-size: 14px;
-  line-height: 17px;
 }

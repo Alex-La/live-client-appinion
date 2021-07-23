@@ -8,17 +8,3 @@
   margin-top: 20px;
   display: flex;
 }
-
-#live-appinion-root
-  > .widget-wrap
-  > .expand-true
-  > .body
-  > .form
-  > .agreement
-  > p {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
-  color: #999999 !important;
-  margin-left: 17px !important;
-}

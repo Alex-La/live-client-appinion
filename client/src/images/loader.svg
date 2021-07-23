@@ -1,0 +1,31 @@
+<svg width="312" height="46" viewBox="0 0 312 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="18" y="10" width="276" height="10">
+<rect x="18" y="10" width="276" height="10" rx="5" fill="#F08466"/>
+</mask>
+<g mask="url(#mask0)">
+<rect x="18" y="10" width="276" height="10" rx="5" fill="#F08466"/>
+<rect x="27" y="2" width="10" height="28" transform="rotate(45 27 2)" fill="white" fill-opacity="0.25"/>
+<rect x="55.8699" y="2" width="10" height="28" transform="rotate(45 55.8699 2)" fill="white" fill-opacity="0.25"/>
+<rect x="84.74" y="2" width="10" height="28" transform="rotate(45 84.74 2)" fill="white" fill-opacity="0.25"/>
+<rect x="113.61" y="2" width="10" height="28" transform="rotate(45 113.61 2)" fill="white" fill-opacity="0.25"/>
+<rect x="142.48" y="2" width="10" height="28" transform="rotate(45 142.48 2)" fill="white" fill-opacity="0.25"/>
+<rect x="171.35" y="2" width="10" height="28" transform="rotate(45 171.35 2)" fill="white" fill-opacity="0.25"/>
+<rect x="200.22" y="2" width="10" height="28" transform="rotate(45 200.22 2)" fill="white" fill-opacity="0.25"/>
+<rect x="229.09" y="2" width="10" height="28" transform="rotate(45 229.09 2)" fill="white" fill-opacity="0.25"/>
+<rect x="257.96" y="2" width="10" height="28" transform="rotate(45 257.96 2)" fill="white" fill-opacity="0.25"/>
+<rect x="286.831" y="2" width="10" height="28" transform="rotate(45 286.831 2)" fill="white" fill-opacity="0.25"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="312" height="46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="9"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.941176 0 0 0 0 0.517647 0 0 0 0 0.4 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>

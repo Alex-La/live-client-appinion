@@ -1,20 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "../../css/chat/chat.css";
 import DefaultMessage from "./messages/DefaultMessage";
 
-import FormatMessage from "./messages/FormatMessage";
-import PandingMessage from "./messages/PandingMessage";
+// import FormatMessage from "./messages/FormatMessage";
+// import PandingMessage from "./messages/PandingMessage";
 
-const Chat = ({ data, socket }) => {
+import ControlContext from "../../context/ControlContext";
+
+const Chat = () => {
+  const { data } = useContext(ControlContext);
+
   const scrollRef = useRef();
   const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    socket.on("message", (message) => {
-      setMessages((messages) => [...messages, message]);
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    });
-  }, [socket]);
 
   return (
     <div className="appinion-chat" ref={scrollRef}>

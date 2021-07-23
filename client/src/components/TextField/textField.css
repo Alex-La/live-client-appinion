@@ -3,6 +3,8 @@
 }
 
 #live-appinion-root .text-field-root > input {
+  font-family: "Montserrat", sans-serif !important;
+  outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -20,6 +22,7 @@
 }
 
 label[for="text-field"] {
+  font-family: "Montserrat", sans-serif !important;
   cursor: text;
   font-weight: 500;
   font-size: 14px;

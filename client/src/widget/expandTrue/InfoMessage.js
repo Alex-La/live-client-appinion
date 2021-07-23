@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../css/expandTrue/infoMessage.css";
 
-const InfoMessage = ({ color }) => {
+import ControlContext from "../../context/ControlContext";
+import Text from "../../components/Text/Text";
+
+const InfoMessage = () => {
+  const { data } = useContext(ControlContext);
   return (
-    <div className="info-message" style={{ "--color": `${color}19` }}>
-      <p className="title">
+    <div className="info-message" style={{ "--color": `${data.mainColor}19` }}>
+      <Text weight={600} lineHeight={"22px"}>
         Хотите увидеть товар вживую или нужна консультация?
-      </p>
-      <p className="description">
+      </Text>
+      <Text marginTop={"10px"} lineHeight={"22px"}>
         Введите ваши контактные данные, и менеджер свяжется с вами по видео или
         аудио-связи
-      </p>
+      </Text>
       <div className="message">
-        <InfoIcon color={color} />
-        <p>Вам включать камеру не нужно!</p>
+        <InfoIcon color={data.mainColor} />
+        <Text fontStyle="italic" lineHeight={"17px"}>
+          Вам включать камеру не нужно!
+        </Text>
       </div>
     </div>
   );
