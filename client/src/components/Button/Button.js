@@ -21,7 +21,7 @@ const Button = ({
         "--shadow-color": `${color}3F`,
         "--default-color": color,
         "--hover-color": LightenDarkenColor(color, 20),
-        "--disabled-back-color": LightenDarkenColor(color, 60),
+        "--disabled-back-color": LightenDarkenColor(color, 30),
         "--disabled-color": LightenDarkenColor(color, -20),
         "--active-color": LightenDarkenColor(color, -10),
       }}

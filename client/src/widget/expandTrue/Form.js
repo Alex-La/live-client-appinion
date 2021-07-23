@@ -35,7 +35,12 @@ const Form = ({ form, setForm, handleSubmit }) => {
         style={{ marginTop: 10, "--color": data.mainColor }}
       />
 
-      <Button type="submit" style={{ marginTop: 20 }} color={data.mainColor}>
+      <Button
+        disabled={!check}
+        type="submit"
+        style={{ marginTop: 20 }}
+        color={data.mainColor}
+      >
         Продолжить
       </Button>
 
