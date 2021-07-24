@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
+import SocketContext from "../../context/SocketContext";
+
 import ControlAndManager from "./ControlAndManager";
 import InfoMessage from "./InfoMessage";
 import Form from "./Form";
@@ -24,10 +26,10 @@ const ExpandTrue = () => {
       </div>
       <div className="body">
         {reg ? (
-          <>
+          <SocketContext.Provider>
             <Chat />
             <ChatForm />
-          </>
+          </SocketContext.Provider>
         ) : (
           <>
             <InfoMessage />
