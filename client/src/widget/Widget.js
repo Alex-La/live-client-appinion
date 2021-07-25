@@ -32,7 +32,7 @@ const Widget = ({ token }) => {
     setIsMobile,
   };
 
-  if (!data || close) return <Fragment />;
+  if (!data || !data.online || close) return <Fragment />;
 
   return (
     <ControlContext.Provider value={controlContextValue}>
