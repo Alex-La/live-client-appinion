@@ -9,8 +9,7 @@ import Close from "../../images/js/Close";
 import Collapse from "../../images/js/Collapse";
 
 const ControlAndManager = () => {
-  const { data, setExpand, setClose, startLive, setStartLive } =
-    useContext(ControlContext);
+  const { data, setExpand, setClose } = useContext(ControlContext);
 
   const handleExpand = () => setExpand(false);
   const handleClose = () => setClose(true);
@@ -18,7 +17,7 @@ const ControlAndManager = () => {
   return (
     <div className="cam-wrap">
       <div className="manager">
-        <div className="img-wrap" onClick={() => setStartLive(!startLive)}>
+        <div className="img-wrap">
           <img src={Manager} alt="manager" />
           <div className="online" style={{ "--color": data.mainColor }} />
         </div>

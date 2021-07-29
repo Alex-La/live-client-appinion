@@ -1,5 +1,5 @@
-export const socketEndpoint = "https://api.appinion.digital";
-export const apiEndpoint = "https://api.appinion.digital/graphql";
+export const socketEndpoint = "http://localhost:4000";
+export const apiEndpoint = "http://localhost:4000/graphql";
 export const peerConfig = {
   config: {
     iceServers: [

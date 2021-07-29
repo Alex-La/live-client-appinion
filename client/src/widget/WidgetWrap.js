@@ -26,11 +26,13 @@ const WidgetWrap = () => {
         </>
       );
     else return <ExpandFalse />;
+    //eslint-disable-next-line
   }, [transition, videoWidth]);
 
   const randerShadow = useMemo(() => {
     if (!transition && expand && startLive)
       return <div className="back-opacity" />;
+    //eslint-disable-next-line
   }, [transition]);
 
   return (
