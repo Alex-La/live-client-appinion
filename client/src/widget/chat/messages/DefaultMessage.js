@@ -13,7 +13,9 @@ const DefaultMessage = ({ message, color }) => {
       {message.from === "manager" && (
         <div className="icon-wrap" style={{ marginRight: 12 }}>
           <img src={Manager} alt="manager" style={{ "--color": color }} />
-          <p>12:30</p>
+          <Text weight={500} size="12px">
+            12:30
+          </Text>
         </div>
       )}
       <div className="text" style={{ "--color": `${color}19` }}>
