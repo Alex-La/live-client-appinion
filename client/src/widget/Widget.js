@@ -4,15 +4,13 @@ import ControlContext from "../context/ControlContext";
 import SocketContext from "../context/SocketContext";
 
 import io from "socket.io-client";
-import Peer from "peerjs";
-import { socketEndpoint, peerConfig } from "../utils/constants";
+import { socketEndpoint } from "../utils/constants";
 import { getData } from "../utils";
 import WebFont from "webfontloader";
 
 import WidgetWrap from "./WidgetWrap";
 
 const socket = io(socketEndpoint);
-const peer = new Peer(peerConfig);
 
 const Widget = ({ token }) => {
   const [data, setData] = useState(null);
@@ -59,7 +57,7 @@ const Widget = ({ token }) => {
 
   return (
     <ControlContext.Provider value={controlContextValue}>
-      <SocketContext.Provider value={{ socket, peer, managerId }}>
+      <SocketContext.Provider value={{ socket, managerId }}>
         <WidgetWrap />
       </SocketContext.Provider>
     </ControlContext.Provider>

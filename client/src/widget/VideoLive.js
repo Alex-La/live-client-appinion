@@ -1,11 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../css/videoLive.css";
 
 import ControlContext from "../context/ControlContext";
+import SocketContext from "../context/SocketContext";
 import Loader from "../images/loader.svg";
 
+import Peer from "peerjs";
+import { peerConfig } from "../utils/constants";
+
 const VideoLive = ({ videoWidth }) => {
+  const [stream, setStream] = useState(false);
+  const videoRef = useRef();
+
   const { isMobile } = useContext(ControlContext);
+  const { socket, managerId } = useContext(SocketContext);
+
+  useEffect(() => {
+    if (stream && videoRef.current) videoRef.current.srcObject = stream;
+  }, [stream]);
+
+  useEffect(() => {
+    const peer = new Peer(peerConfig);
+
+    peer.on("open", (id) => {
+      socket.emit("answer", managerId, id);
+    });
+
+    peer.on("error", console.log);
+
+    peer.on("call", (call) => {
+      call.answer();
+      call.on("stream", (stream) => {
+        setStream(stream);
+      });
+    });
+  }, [managerId, socket]);
 
   return (
     <div
@@ -23,7 +52,16 @@ const VideoLive = ({ videoWidth }) => {
           : { width: videoWidth }
       }
     >
-      <img src={Loader} alt={"loader"} />
+      {stream ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          style={{ objectFit: "cover" }}
+        />
+      ) : (
+        <img src={Loader} alt={"loader"} />
+      )}
     </div>
   );
 };
