@@ -28,9 +28,14 @@ const WidgetWrap = () => {
     else return <ExpandFalse />;
   }, [transition, videoWidth]);
 
+  const randerShadow = useMemo(() => {
+    if (!transition && expand && startLive)
+      return <div className="back-opacity" />;
+  }, [transition]);
+
   return (
     <ErrorBoundary>
-      {startLive && <div className="back-opacity" />}
+      {randerShadow}
       <div className="widget-wrap" style={props} ref={transitionRef}>
         <Suspense fallback={<Fragment />}>{randerEntries}</Suspense>
       </div>
