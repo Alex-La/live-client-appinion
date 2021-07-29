@@ -10,8 +10,10 @@ const Text = ({
   color = "#282828",
   letterSpacing = "auto",
   fontStyle = "normal",
+  style,
 }) => {
   const textStyle = {
+    ...style,
     "--margin-top": marginTop,
     "--weight": weight,
     "--size": size,

@@ -3,9 +3,6 @@ import "../../css/expandTrue/expandTrue.css";
 
 import SocketContext from "../../context/SocketContext";
 import ControlContext from "../../context/ControlContext";
-import io from "socket.io-client";
-import Peer from "peerjs";
-import { socketEndpoint, peerConfig } from "../../utils/constants";
 
 import ControlAndManager from "./ControlAndManager";
 import InfoMessage from "./InfoMessage";
@@ -14,11 +11,10 @@ import Chat from "../chat/Chat";
 import ChatForm from "../chat/Form";
 import Logo from "./Logo";
 
-const socket = io(socketEndpoint);
-const peer = new Peer(peerConfig);
-
 const ExpandTrue = () => {
   const { regForm, setRegForm, data } = useContext(ControlContext);
+  const { socket } = useContext(SocketContext);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -39,10 +35,10 @@ const ExpandTrue = () => {
       </div>
       <div className="body">
         {regForm ? (
-          <SocketContext.Provider value={{ socket, peer }}>
+          <>
             <Chat />
             <ChatForm />
-          </SocketContext.Provider>
+          </>
         ) : (
           <>
             <InfoMessage />

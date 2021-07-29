@@ -6,7 +6,7 @@
   > .panding-message {
   text-align: center;
   margin: 20px;
-  padding: 20px;
+  padding: 20px 30px;
   background: var(--color);
   border-radius: 10px;
 }

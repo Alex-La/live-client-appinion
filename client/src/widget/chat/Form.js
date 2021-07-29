@@ -5,15 +5,25 @@ import TextField from "../../components/TextField/TextField";
 import Button from "../../components/Button/Button";
 
 import ControlContext from "../../context/ControlContext";
+import SocketContext from "../../context/SocketContext";
 
 const Form = () => {
   const { data } = useContext(ControlContext);
+  const { socket, managerId } = useContext(SocketContext);
 
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSend = (e) => {
     e.preventDefault();
+    if (message.length !== 0) {
+      socket.emit(
+        "message",
+        { message, from: "user", type: "default" },
+        managerId
+      );
+      setMessage("");
+    }
   };
 
   return (

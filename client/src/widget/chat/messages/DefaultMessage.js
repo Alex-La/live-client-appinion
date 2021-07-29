@@ -2,6 +2,7 @@ import React from "react";
 import "../../../css/chat/messages/defaultMessage.css";
 
 import Manager from "../../../images/dispatcher.png";
+import Text from "../../../components/Text/Text";
 
 const DefaultMessage = ({ message, color }) => {
   return (
@@ -34,12 +35,14 @@ const DefaultMessage = ({ message, color }) => {
           />
         </svg>
 
-        <p style={{ wordWrap: "break-word" }}>{message.message}</p>
+        <Text style={{ wordWrap: "break-word" }}>{message.message}</Text>
       </div>
       {message.from === "user" && (
         <div className="icon-wrap" style={{ marginLeft: 12 }}>
           <div style={{ "--color": color }} />
-          <p>12:30</p>
+          <Text weight={500} size="12px">
+            12:30
+          </Text>
         </div>
       )}
     </div>

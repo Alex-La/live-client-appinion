@@ -1,22 +1,28 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import "../../css/chat/chat.css";
-import DefaultMessage from "./messages/DefaultMessage";
 
-// import FormatMessage from "./messages/FormatMessage";
-// import PandingMessage from "./messages/PandingMessage";
+import SocketContext from "../../context/SocketContext";
 
-import ControlContext from "../../context/ControlContext";
+import Message from "./messages/Message";
 
 const Chat = () => {
-  const { data } = useContext(ControlContext);
+  const { socket } = useContext(SocketContext);
 
   const scrollRef = useRef();
   const [messages, setMessages] = useState([]);
 
+  useEffect(() => {
+    socket.on("message", (message) => {
+      setMessages((messages) => [...messages, message]);
+      if (scrollRef.current)
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    });
+  }, [socket]);
+
   return (
     <div className="appinion-chat" ref={scrollRef}>
       {messages.map((message) => (
-        <DefaultMessage message={message} color={data.mainColor} />
+        <Message message={message} />
       ))}
     </div>
   );
