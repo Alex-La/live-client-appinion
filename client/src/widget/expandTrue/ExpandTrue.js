@@ -18,12 +18,18 @@ const socket = io(socketEndpoint);
 const peer = new Peer(peerConfig);
 
 const ExpandTrue = () => {
-  const { regForm, setRegForm } = useContext(ControlContext);
-  const [form, setForm] = useState({ name: "", email: "" });
+  const { regForm, setRegForm, data } = useContext(ControlContext);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    host: data.host,
+    time: "12:37",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegForm(form);
+    socket.emit("user", form);
   };
 
   return (
