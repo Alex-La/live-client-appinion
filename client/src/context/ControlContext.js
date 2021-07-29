@@ -9,6 +9,8 @@ const ControlContext = createContext({
   setClose: () => {},
   isMobile: null,
   setIsMobile: () => {},
+  regForm: null,
+  setRegForm: () => {},
 });
 
 export default ControlContext;

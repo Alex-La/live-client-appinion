@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
 import SocketContext from "../../context/SocketContext";
+import ControlContext from "../../context/ControlContext";
 import io from "socket.io-client";
 import Peer from "peerjs";
 import { socketEndpoint, peerConfig } from "../../utils/constants";
@@ -17,12 +18,12 @@ const socket = io(socketEndpoint);
 const peer = new Peer(peerConfig);
 
 const ExpandTrue = () => {
-  const [reg, setReg] = useState(false);
+  const { regForm, setRegForm } = useContext(ControlContext);
   const [form, setForm] = useState({ name: "", email: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setReg(true);
+    setRegForm(form);
   };
 
   return (
@@ -31,7 +32,7 @@ const ExpandTrue = () => {
         <ControlAndManager />
       </div>
       <div className="body">
-        {reg ? (
+        {regForm ? (
           <SocketContext.Provider value={{ socket, peer }}>
             <Chat />
             <ChatForm />

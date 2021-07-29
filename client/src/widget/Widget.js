@@ -12,6 +12,7 @@ const Widget = ({ token }) => {
   const [startLive, setStartLive] = useState(false);
   const [expand, setExpand] = useState(false);
   const [close, setClose] = useState(false);
+  const [regForm, setRegForm] = useState(false);
 
   useEffect(() => {
     getData(token).then((data) => setData(data));
@@ -30,6 +31,8 @@ const Widget = ({ token }) => {
     setClose,
     isMobile,
     setIsMobile,
+    regForm,
+    setRegForm,
   };
 
   if (!data || !data.online || close) return <Fragment />;
