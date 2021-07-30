@@ -16,7 +16,10 @@ const VideoLive = ({ videoWidth }) => {
   const { socket, managerId } = useContext(SocketContext);
 
   useEffect(() => {
-    if (stream && videoRef.current) videoRef.current.srcObject = stream;
+    if (stream && videoRef.current) {
+      videoRef.current.srcObject = stream;
+      if (videoRef.current.paused) videoRef.current.play();
+    }
   }, [stream]);
 
   useEffect(() => {
@@ -53,12 +56,7 @@ const VideoLive = ({ videoWidth }) => {
       }
     >
       {stream ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          style={{ objectFit: "cover" }}
-        />
+        <video ref={videoRef} autoPlay playsInline />
       ) : (
         <img src={Loader} alt={"loader"} />
       )}
