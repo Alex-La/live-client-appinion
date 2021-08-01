@@ -21,6 +21,7 @@ const Widget = ({ token }) => {
   const [regForm, setRegForm] = useState(false);
 
   const [managerId, setManagerId] = useState(null);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     getData(token).then((data) => setData(data));
@@ -57,7 +58,9 @@ const Widget = ({ token }) => {
 
   return (
     <ControlContext.Provider value={controlContextValue}>
-      <SocketContext.Provider value={{ socket, managerId }}>
+      <SocketContext.Provider
+        value={{ socket, managerId, messages, setMessages }}
+      >
         <WidgetWrap />
       </SocketContext.Provider>
     </ControlContext.Provider>

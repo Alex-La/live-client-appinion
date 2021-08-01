@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import "../../css/chat/chat.css";
 
 import SocketContext from "../../context/SocketContext";
@@ -6,10 +6,9 @@ import SocketContext from "../../context/SocketContext";
 import Message from "./messages/Message";
 
 const Chat = () => {
-  const { socket } = useContext(SocketContext);
+  const { socket, messages, setMessages } = useContext(SocketContext);
 
   const scrollRef = useRef();
-  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     socket.on("message", (message) => {
@@ -17,7 +16,7 @@ const Chat = () => {
       if (scrollRef.current)
         scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     });
-  }, [socket]);
+  }, [socket, setMessages]);
 
   return (
     <div className="appinion-chat" ref={scrollRef}>
