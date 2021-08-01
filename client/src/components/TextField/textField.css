@@ -21,15 +21,11 @@
   padding-left: 12px;
 }
 
-label[for="text-field"] {
+#live-appinion-root .text-field-root > label {
   font-family: "Montserrat", sans-serif !important;
   cursor: text;
   font-weight: 500;
-  font-size: 14px;
-  color: #9ba0b9;
   position: absolute;
-  left: 7px;
-  top: 16px;
   background-color: white;
   padding: 0 5px;
   transition: 0.3s;
@@ -38,21 +34,4 @@ label[for="text-field"] {
 #live-appinion-root .text-field-root > input:focus {
   border: 1px solid var(--color);
   color: var(--color);
-}
-
-#live-appinion-root .text-field-root > input:focus ~ label[for="text-field"],
-#live-appinion-root
-  .text-field-root
-  > input:not([value=""])
-  ~ label[for="text-field"] {
-  font-size: 12px;
-  top: -8px;
-  color: var(--color);
-}
-
-#live-appinion-root
-  .text-field-root
-  > input:not(:focus)
-  ~ label[for="text-field"] {
-  color: #9ba0b9;
 }
