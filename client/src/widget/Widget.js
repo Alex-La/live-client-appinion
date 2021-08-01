@@ -36,7 +36,7 @@ const Widget = ({ token }) => {
     });
 
     socket.on("offer", (id) => {
-      setStartLive(id);
+      socket.emit("message", { type: "offer", id }, managerId);
     });
   }, []);
 
