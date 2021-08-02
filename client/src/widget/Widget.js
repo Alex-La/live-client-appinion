@@ -22,6 +22,7 @@ const Widget = ({ token }) => {
 
   const [managerId, setManagerId] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [stream, setStream] = useState(null);
 
   useEffect(() => {
     getData(token).then((data) => setData(data));
@@ -41,6 +42,12 @@ const Widget = ({ token }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (stream === "stop") {
+      setMessages((messages) => [...messages, { type: "stop-live" }]);
+    }
+  }, [stream]);
+
   const controlContextValue = {
     data,
     startLive,
@@ -59,7 +66,7 @@ const Widget = ({ token }) => {
   return (
     <ControlContext.Provider value={controlContextValue}>
       <SocketContext.Provider
-        value={{ socket, managerId, messages, setMessages }}
+        value={{ socket, managerId, messages, setMessages, stream, setStream }}
       >
         <WidgetWrap />
       </SocketContext.Provider>

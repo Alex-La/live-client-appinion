@@ -5,6 +5,7 @@ import ControlContext from "../../../context/ControlContext";
 import DefaultMessage from "./DefaultMessage";
 import PandingMessage from "./PandingMessage";
 import OfferMessage from "./OfferMessage";
+import StopMessage from "./StopMessage";
 
 const Message = ({ message }) => {
   const { data } = useContext(ControlContext);
@@ -16,6 +17,8 @@ const Message = ({ message }) => {
       return <PandingMessage color={data.mainColor} />;
     case "offer":
       return <OfferMessage color={data.mainColor} message={message} />;
+    case "stop-live":
+      return <StopMessage />;
     default:
       return <Fragment />;
   }

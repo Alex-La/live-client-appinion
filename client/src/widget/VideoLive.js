@@ -9,11 +9,10 @@ import Peer from "peerjs";
 import { peerConfig } from "../utils/constants";
 
 const VideoLive = ({ videoWidth }) => {
-  const [stream, setStream] = useState(false);
   const videoRef = useRef();
 
-  const { isMobile } = useContext(ControlContext);
-  const { socket, managerId } = useContext(SocketContext);
+  const { isMobile, setStartLive } = useContext(ControlContext);
+  const { socket, managerId, stream, setStream } = useContext(SocketContext);
 
   useEffect(() => {
     if (stream && videoRef.current) {
@@ -37,7 +36,13 @@ const VideoLive = ({ videoWidth }) => {
         setStream(stream);
       });
     });
-  }, [managerId, socket]);
+
+    socket.on("iceCandidate", () => {
+      peer.disconnect();
+      setStartLive(false);
+      setStream("stop");
+    });
+  }, [socket, setStartLive, setStream]);
 
   return (
     <div
@@ -55,7 +60,7 @@ const VideoLive = ({ videoWidth }) => {
           : { width: videoWidth }
       }
     >
-      {stream ? (
+      {stream && stream !== "stop" ? (
         <video ref={videoRef} autoPlay playsInline />
       ) : (
         <img src={Loader} alt={"loader"} />

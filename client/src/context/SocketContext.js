@@ -5,6 +5,8 @@ const SocketContext = createContext({
   managerId: null,
   messages: null,
   setMessages: () => {},
+  stream: null,
+  setStream: () => {},
 });
 
 export default SocketContext;
