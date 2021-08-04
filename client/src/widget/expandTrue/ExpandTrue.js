@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
+import uniqid from "uniqid";
+
 import SocketContext from "../../context/SocketContext";
 import ControlContext from "../../context/ControlContext";
 
@@ -19,7 +21,7 @@ const ExpandTrue = () => {
     name: "",
     email: "",
     host: data.host,
-    time: "12:37",
+    id: uniqid(),
   });
 
   const handleSubmit = (e) => {
