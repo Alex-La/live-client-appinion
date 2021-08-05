@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import Button from "../../../components/Button/Button";
 import ControlContext from "../../../context/ControlContext";
 
@@ -7,14 +7,10 @@ import Text from "../../../components/Text/Text";
 import SocketContext from "../../../context/SocketContext";
 
 const OfferMessage = ({ color }) => {
-  const { setStartLive, startLive, data } = useContext(ControlContext);
-  const { stream } = useContext(SocketContext);
+  const { startLive, data } = useContext(ControlContext);
+  const { stream, answer } = useContext(SocketContext);
 
-  const handleStart = () => {
-    setStartLive(true);
-  };
-
-  if (stream === "stop") return <Fragment />;
+  const handleStart = () => answer();
 
   if (stream)
     return (

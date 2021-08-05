@@ -46,7 +46,6 @@ export const getData = async (token) => {
       }),
     });
     const data = await response.json();
-    console.log(data.data.videoWidget);
     return data.data.videoWidget;
   } catch (e) {
     console.log(e);

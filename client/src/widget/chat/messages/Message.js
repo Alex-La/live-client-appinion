@@ -8,7 +8,7 @@ import OfferMessage from "./OfferMessage";
 import StopMessage from "./StopMessage";
 
 const Message = ({ message }) => {
-  const { data, setStartLive } = useContext(ControlContext);
+  const { data } = useContext(ControlContext);
 
   switch (message.type) {
     case "default":
@@ -18,7 +18,6 @@ const Message = ({ message }) => {
     case "offer":
       return <OfferMessage color={data.mainColor} message={message} />;
     case "stop-live":
-      setStartLive(false);
       return <StopMessage />;
     default:
       return <Fragment />;
