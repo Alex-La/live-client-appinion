@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "../css/videoLive.css";
 
 import ControlContext from "../context/ControlContext";
@@ -12,7 +12,7 @@ const VideoLive = ({ videoWidth }) => {
   const videoRef = useRef();
 
   const { isMobile, setStartLive } = useContext(ControlContext);
-  const { socket, managerId, stream, setStream } = useContext(SocketContext);
+  const { stream, setStream, answer, user } = useContext(SocketContext);
 
   useEffect(() => {
     if (stream && videoRef.current) {
@@ -22,10 +22,10 @@ const VideoLive = ({ videoWidth }) => {
   }, [stream]);
 
   useEffect(() => {
-    const peer = new Peer(peerConfig);
+    const peer = new Peer(user.id, peerConfig);
 
     peer.on("open", (id) => {
-      socket.emit("answer", managerId, id);
+      answer(id);
     });
 
     peer.on("error", console.log);
@@ -37,12 +37,12 @@ const VideoLive = ({ videoWidth }) => {
       });
     });
 
-    socket.on("iceCandidate", () => {
-      peer.disconnect();
-      setStartLive(false);
-      setStream("stop");
-    });
-  }, [socket, setStartLive, setStream]);
+    // socket.on("iceCandidate", () => {
+    //   peer.disconnect();
+    //   setStartLive(false);
+    //   setStream("stop");
+    // });
+  }, [setStartLive, setStream]);
 
   return (
     <div

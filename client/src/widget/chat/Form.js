@@ -9,7 +9,7 @@ import SocketContext from "../../context/SocketContext";
 
 const Form = () => {
   const { data } = useContext(ControlContext);
-  const { socket, managerId } = useContext(SocketContext);
+  const { send, user } = useContext(SocketContext);
 
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
@@ -17,11 +17,7 @@ const Form = () => {
   const handleSend = (e) => {
     e.preventDefault();
     if (message.length !== 0) {
-      socket.emit(
-        "message",
-        { message, from: "user", type: "default" },
-        managerId
-      );
+      send({ message, from: "user", type: "default" }, user.id);
       setMessage("");
     }
   };

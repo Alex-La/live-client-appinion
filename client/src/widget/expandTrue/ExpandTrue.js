@@ -14,8 +14,8 @@ import ChatForm from "../chat/Form";
 import Logo from "./Logo";
 
 const ExpandTrue = () => {
-  const { regForm, setRegForm, data } = useContext(ControlContext);
-  const { socket } = useContext(SocketContext);
+  const { data } = useContext(ControlContext);
+  const { connect, user, setUser } = useContext(SocketContext);
 
   const [form, setForm] = useState({
     name: "",
@@ -26,8 +26,8 @@ const ExpandTrue = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRegForm(form);
-    socket.emit("user", form);
+    setUser(form);
+    connect(form);
   };
 
   return (
@@ -36,7 +36,7 @@ const ExpandTrue = () => {
         <ControlAndManager />
       </div>
       <div className="body">
-        {regForm ? (
+        {user ? (
           <>
             <Chat />
             <ChatForm />

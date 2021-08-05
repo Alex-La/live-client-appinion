@@ -6,42 +6,41 @@ import { socketEndpoint } from "../utils/constants";
 const socket = io(socketEndpoint);
 
 const SocketContext = createContext({
-  socket: null,
-  managerId: null,
+  user: null,
+  setUser: () => {},
   messages: null,
-  setMessages: () => {},
   stream: null,
   setStream: () => {},
+  connect: () => {},
+  send: () => {},
+  answer: () => {},
 });
 
 export const SocketContextProvider = ({ children }) => {
-  const [managerId, setManagerId] = useState(null);
+  const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [stream, setStream] = useState(null);
 
   useEffect(() => {
-    socket.on("managerId", (id) => {
-      setManagerId(id);
-    });
-
-    socket.on("offer", (id) => {
-      socket.emit("message", { type: "offer", id }, managerId);
+    socket.on("message", (message) => {
+      if (message.type === "stop-live") setStream(null);
+      setMessages((messages) => [...messages, message]);
     });
   }, []);
 
-  useEffect(() => {
-    if (stream === "stop") {
-      setMessages((messages) => [...messages, { type: "stop-live" }]);
-    }
-  }, [stream]);
+  const connect = (user) => socket.emit("user", user);
+  const send = (message, id) => socket.emit("message", message, id);
+  const answer = (id) => socket.emit("answer", id);
 
   const socketContextValue = {
-    socket,
-    managerId,
+    user,
+    setUser,
+    connect,
+    send,
     messages,
-    setMessages,
     stream,
     setStream,
+    answer,
   };
 
   return (

@@ -6,12 +6,12 @@ import Stream from "../../../images/stream.svg";
 import Text from "../../../components/Text/Text";
 import SocketContext from "../../../context/SocketContext";
 
-const OfferMessage = ({ color, message }) => {
+const OfferMessage = ({ color }) => {
   const { setStartLive, startLive, data } = useContext(ControlContext);
   const { stream } = useContext(SocketContext);
 
   const handleStart = () => {
-    setStartLive(message.id);
+    setStartLive(true);
   };
 
   if (stream === "stop") return <Fragment />;
