@@ -26,6 +26,10 @@ const ExpandTrue = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    sessionStorage.setItem(
+      "live.appinion.digital.session",
+      JSON.stringify(form)
+    );
     setUser(form);
     connect(form);
   };
