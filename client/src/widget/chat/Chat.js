@@ -17,8 +17,8 @@ const Chat = () => {
 
   return (
     <div className="appinion-chat" ref={scrollRef}>
-      {messages.map((message) => (
-        <Message message={message} />
+      {messages.map((message, index) => (
+        <Message message={message} key={index} />
       ))}
     </div>
   );

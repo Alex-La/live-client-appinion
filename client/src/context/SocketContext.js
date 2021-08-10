@@ -16,14 +16,27 @@ const SocketContext = createContext({
   connect: () => {},
   send: () => {},
   answer: () => {},
+  endsession: () => {},
 });
 
 export const SocketContextProvider = ({ children }) => {
-  const { setStartLive } = useContext(ControlContext);
+  const { setStartLive, setExpand } = useContext(ControlContext);
 
   const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [stream, setStream] = useState(null);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("live.appinion.digital.session")) {
+      setExpand(true);
+      const session = JSON.parse(
+        sessionStorage.getItem("live.appinion.digital.session")
+      );
+      setUser(session);
+      reconnect(session.id, session.host);
+      getMessages(session.id, session.host);
+    }
+  }, []);
 
   useEffect(() => {
     if (user && user.id) {
@@ -48,6 +61,10 @@ export const SocketContextProvider = ({ children }) => {
       } else setMessages((messages) => [...messages, message]);
     });
 
+    socket.on("messages", (messages) => {
+      setMessages(messages);
+    });
+
     socket.on("endcall", () => {
       setStartLive(false);
       setStream(null);
@@ -55,10 +72,16 @@ export const SocketContextProvider = ({ children }) => {
   }, [setStartLive]);
 
   const connect = (user) => socket.emit("user", user);
-  const send = (message, id) => socket.emit("message", message, id);
+  const reconnect = (id, host) => socket.emit("reconnect", id, host);
+  const send = (message, id) => socket.emit("message", message, id, user.host);
+  const getMessages = (id, host) => socket.emit("messages", id, host);
   const answer = () => {
     socket.emit("answer", user.id);
     setStartLive(true);
+  };
+  const endsession = () => {
+    socket.emit("endsession");
+    sessionStorage.removeItem("live.appinion.digital.session");
   };
 
   const socketContextValue = {
@@ -70,6 +93,7 @@ export const SocketContextProvider = ({ children }) => {
     stream,
     setStream,
     answer,
+    endsession,
   };
 
   return (
