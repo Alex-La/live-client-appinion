@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "../../css/expandTrue/controlAndManager.css";
 
 import ControlContext from "../../context/ControlContext";
-import SocketContext from "../../context/SocketContext";
 
 import Text from "../../components/Text/Text";
 import Manager from "../../images/dispatcher.png";
@@ -11,13 +10,9 @@ import Collapse from "../../images/js/Collapse";
 
 const ControlAndManager = () => {
   const { data, setExpand, setClose } = useContext(ControlContext);
-  const { endsession } = useContext(SocketContext);
 
   const handleExpand = () => setExpand(false);
-  const handleClose = () => {
-    setClose(true);
-    endsession();
-  };
+  const handleClose = () => setClose(true);
 
   return (
     <div className="cam-wrap">
