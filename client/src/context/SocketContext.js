@@ -9,17 +9,21 @@ const socket = io(socketEndpoint);
 const SocketContext = createContext({
   user: null,
   messages: [],
+  stream: null,
+  setStream: () => {},
   setUser: () => {},
   deleteSession: () => {},
   createSession: () => {},
   sendMessage: () => {},
+  answer: () => {},
 });
 
 export const SocketContextProvider = ({ children }) => {
-  const { setExpand } = useContext(ControlContext);
+  const { setExpand, setStartLive } = useContext(ControlContext);
 
   const [user, setUser] = useState();
   const [messages, setMessages] = useState([]);
+  const [stream, setStream] = useState();
 
   useEffect(() => {
     const sesString = sessionStorage.getItem("appinion_session_id");
@@ -44,6 +48,13 @@ export const SocketContextProvider = ({ children }) => {
     socket.on("messages", (messages) => {
       setMessages(messages);
     });
+
+    socket.on("endcall", (id, host) => {
+      console.log(user);
+      socket.emit("messages", id, host);
+      setStream(null);
+      setStartLive(false);
+    });
   }, []);
 
   const createSession = (user) => {
@@ -63,15 +74,20 @@ export const SocketContextProvider = ({ children }) => {
   const sendMessage = (message) =>
     socket.emit("message", message, user.id, user.host);
 
+  const answer = () => socket.emit("answer", user.id);
+
   return (
     <SocketContext.Provider
       value={{
         user,
         messages,
+        stream,
+        setStream,
         setUser,
         deleteSession,
         createSession,
         sendMessage,
+        answer,
       }}
     >
       {children}

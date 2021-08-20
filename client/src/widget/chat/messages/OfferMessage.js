@@ -4,11 +4,15 @@ import ControlContext from "../../../context/ControlContext";
 
 import Stream from "../../../images/stream.svg";
 import Text from "../../../components/Text/Text";
+import SocketContext from "../../../context/SocketContext";
 
 const OfferMessage = ({ color }) => {
-  const { startLive, data } = useContext(ControlContext);
+  const { startLive, data, setStartLive } = useContext(ControlContext);
+  const { stream } = useContext(SocketContext);
 
-  const handleStart = () => answer();
+  const handleStart = () => {
+    setStartLive(true);
+  };
 
   if (stream)
     return (

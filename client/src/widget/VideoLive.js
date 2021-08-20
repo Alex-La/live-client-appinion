@@ -6,18 +6,36 @@ import Loader from "../images/loader.gif";
 import Eye from "../images/eye.svg";
 
 import Text from "../components/Text/Text";
+import SocketContext from "../context/SocketContext";
+import Peer from "peerjs";
+import { peerConfig } from "../utils/constants";
 
 const VideoLive = ({ videoWidth }) => {
   const videoRef = useRef();
 
   const { isMobile } = useContext(ControlContext);
+  const { stream, setStream, answer, user } = useContext(SocketContext);
 
-  // useEffect(() => {
-  //   if (stream && videoRef.current) {
-  //     videoRef.current.srcObject = stream;
-  //     if (videoRef.current.paused) videoRef.current.play();
-  //   }
-  // }, [stream]);
+  useEffect(() => {
+    const peer = new Peer(user.id, peerConfig);
+    peer.on("open", () => {
+      answer();
+    });
+
+    peer.on("call", (call) => {
+      call.answer();
+      call.on("stream", (stream) => {
+        setStream(stream);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (stream && videoRef.current) {
+      videoRef.current.srcObject = stream;
+      if (videoRef.current.paused) videoRef.current.play();
+    }
+  }, [stream]);
 
   return (
     <div
@@ -35,7 +53,7 @@ const VideoLive = ({ videoWidth }) => {
           : { width: videoWidth, position: "relative" }
       }
     >
-      {false ? (
+      {stream ? (
         <Fragment>
           <video
             ref={videoRef}

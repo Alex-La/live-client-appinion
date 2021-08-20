@@ -15,9 +15,9 @@ const Message = ({ message }) => {
       return <DefaultMessage message={message} color={data.mainColor} />;
     case "join":
       return <PandingMessage color={data.mainColor} />;
-    case "offer":
+    case "live-start":
       return <OfferMessage color={data.mainColor} message={message} />;
-    case "stop-live":
+    case "live-end":
       return <StopMessage />;
     default:
       return <Fragment />;
