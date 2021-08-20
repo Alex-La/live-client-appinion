@@ -13,7 +13,7 @@ const Message = ({ message }) => {
   switch (message.type) {
     case "default":
       return <DefaultMessage message={message} color={data.mainColor} />;
-    case "panding":
+    case "join":
       return <PandingMessage color={data.mainColor} />;
     case "offer":
       return <OfferMessage color={data.mainColor} message={message} />;

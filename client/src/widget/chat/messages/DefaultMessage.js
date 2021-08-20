@@ -37,7 +37,7 @@ const DefaultMessage = ({ message, color }) => {
           />
         </svg>
 
-        <Text style={{ wordWrap: "break-word" }}>{message.message}</Text>
+        <Text style={{ wordWrap: "break-word" }}>{message.text}</Text>
       </div>
       {message.from === "user" && (
         <div className="icon-wrap" style={{ marginLeft: 12 }}>

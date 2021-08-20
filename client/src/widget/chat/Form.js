@@ -5,9 +5,11 @@ import TextField from "../../components/TextField/TextField";
 import Button from "../../components/Button/Button";
 
 import ControlContext from "../../context/ControlContext";
+import SocketContext from "../../context/SocketContext";
 
 const Form = () => {
   const { data } = useContext(ControlContext);
+  const { sendMessage } = useContext(SocketContext);
 
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
@@ -15,10 +17,10 @@ const Form = () => {
   const handleSend = (e) => {
     e.preventDefault();
 
-    // if (message.length !== 0) {
-    //   send({ message, from: "user", type: "default" }, user.id);
-    //   setMessage("");
-    // }
+    if (message.length !== 0) {
+      sendMessage({ text: message, from: "user", type: "default" });
+      setMessage("");
+    }
   };
 
   return (

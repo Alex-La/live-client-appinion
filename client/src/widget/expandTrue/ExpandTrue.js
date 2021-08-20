@@ -15,7 +15,7 @@ import Logo from "./Logo";
 
 const ExpandTrue = () => {
   const { data } = useContext(ControlContext);
-  const { setUser, user } = useContext(SocketContext);
+  const { createSession, user } = useContext(SocketContext);
 
   const [form, setForm] = useState({
     name: "",
@@ -26,8 +26,7 @@ const ExpandTrue = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUser(form);
-    sessionStorage.setItem("appinion_session_id", form.id);
+    createSession(form);
   };
 
   return (
