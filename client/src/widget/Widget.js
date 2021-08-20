@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
 import { ControlContextProvider } from "../context/ControlContext";
-import { SocketContextProvider } from "../context/SocketContext";
 
 import WebFont from "webfontloader";
 
 import WidgetWrap from "./WidgetWrap";
+import { SocketContextProvider } from "../context/SocketContext";
 
 const Widget = ({ token }) => {
   useEffect(() => {

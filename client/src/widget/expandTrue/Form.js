@@ -11,7 +11,7 @@ import Text from "../../components/Text/Text";
 const Form = ({ form, setForm, handleSubmit }) => {
   const { data } = useContext(ControlContext);
 
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState(true);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,6 +26,8 @@ const Form = ({ form, setForm, handleSubmit }) => {
         value={form.name}
         label="Ваше имя"
         style={{ "--color": data.mainColor }}
+        autoComplete={true}
+        required={true}
       />
       <TextField
         name={"email"}
@@ -33,10 +35,12 @@ const Form = ({ form, setForm, handleSubmit }) => {
         value={form.email}
         label="E-mail"
         style={{ marginTop: 10, "--color": data.mainColor }}
+        autoComplete={true}
+        required={true}
       />
 
       <Button
-        disabled={!check}
+        disabled={!check || !form.name.length || !form.email.length}
         type="submit"
         style={{ marginTop: 20 }}
         color={data.mainColor}

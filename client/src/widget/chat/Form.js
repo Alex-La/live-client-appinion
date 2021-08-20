@@ -5,21 +5,20 @@ import TextField from "../../components/TextField/TextField";
 import Button from "../../components/Button/Button";
 
 import ControlContext from "../../context/ControlContext";
-import SocketContext from "../../context/SocketContext";
 
 const Form = () => {
   const { data } = useContext(ControlContext);
-  const { send, user } = useContext(SocketContext);
 
   const [message, setMessage] = useState("");
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSend = (e) => {
     e.preventDefault();
-    if (message.length !== 0) {
-      send({ message, from: "user", type: "default" }, user.id);
-      setMessage("");
-    }
+
+    // if (message.length !== 0) {
+    //   send({ message, from: "user", type: "default" }, user.id);
+    //   setMessage("");
+    // }
   };
 
   return (
@@ -29,6 +28,7 @@ const Form = () => {
         style={{ width: "100%", "--color": data.mainColor }}
         onChange={handleChange}
         value={message}
+        autoComplete={false}
       />
       <Button
         style={{ width: 50, marginLeft: 20 }}

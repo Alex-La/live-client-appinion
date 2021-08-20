@@ -22,3 +22,17 @@
   right: 0;
   z-index: -1;
 }
+
+#live-appinion-root > .widget-wrap > .video-live-wrap > .stream-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 108px;
+  height: 39px;
+  background-color: #f44336;
+  box-shadow: 0px 8px 16px rgba(244, 67, 54, 0.15);
+  border-radius: 5px;
+}

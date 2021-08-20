@@ -8,7 +8,7 @@
 
 #live-appinion-root > .widget-wrap {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   position: fixed !important;
   background-color: white !important;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15) !important;

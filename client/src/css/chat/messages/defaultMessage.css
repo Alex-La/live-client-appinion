@@ -1,7 +1,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message {
   display: flex;
@@ -11,7 +11,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .icon-wrap {
@@ -23,7 +23,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .icon-wrap
@@ -36,7 +36,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .icon-wrap
@@ -49,7 +49,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .icon-wrap
@@ -60,12 +60,15 @@
   background-color: white;
   border-radius: 50px;
   margin-bottom: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .text {
@@ -82,7 +85,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .message
   > .text

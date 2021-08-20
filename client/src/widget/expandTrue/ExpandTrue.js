@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, Fragment } from "react";
 import "../../css/expandTrue/expandTrue.css";
 
 import uniqid from "uniqid";
 
-import SocketContext from "../../context/SocketContext";
 import ControlContext from "../../context/ControlContext";
+import SocketContext from "../../context/SocketContext";
 
 import ControlAndManager from "./ControlAndManager";
 import InfoMessage from "./InfoMessage";
@@ -15,7 +15,7 @@ import Logo from "./Logo";
 
 const ExpandTrue = () => {
   const { data } = useContext(ControlContext);
-  const { connect, user, setUser } = useContext(SocketContext);
+  const { setUser, user } = useContext(SocketContext);
 
   const [form, setForm] = useState({
     name: "",
@@ -26,33 +26,29 @@ const ExpandTrue = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sessionStorage.setItem(
-      "live.appinion.digital.session",
-      JSON.stringify(form)
-    );
     setUser(form);
-    connect(form);
+    sessionStorage.setItem("appinion_session_id", form.id);
   };
 
   return (
     <div className="expand-true">
-      <div className="header">
+      <div className="appinion-widget-header">
         <ControlAndManager />
       </div>
-      <div className="body">
+      <div className="appinion-widget-body">
         {user ? (
-          <>
+          <Fragment>
             <Chat />
             <ChatForm />
-          </>
+          </Fragment>
         ) : (
-          <>
+          <Fragment>
             <InfoMessage />
             <Form form={form} setForm={setForm} handleSubmit={handleSubmit} />
-          </>
+          </Fragment>
         )}
       </div>
-      <div className="footer">
+      <div className="appinion-widget-footer">
         <Logo />
       </div>
     </div>

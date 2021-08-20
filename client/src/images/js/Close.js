@@ -1,10 +1,8 @@
-import React from "react";
-
 const Close = ({ handleClose, color }) => {
   return (
     <svg
       onClick={handleClose}
-      style={{ cursor: "pointer" }}
+      style={{ cursor: "pointer", boxSizing: "content-box" }}
       width="16"
       height="16"
       viewBox="0 0 16 16"

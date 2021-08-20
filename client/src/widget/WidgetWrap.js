@@ -18,13 +18,7 @@ const WidgetWrap = () => {
 
   const randerEntries = useMemo(() => {
     if (transition) return <Fragment />;
-    else if (expand)
-      return (
-        <>
-          <ExpandTrue />
-          {startLive && <VideoLive videoWidth={videoWidth} />}
-        </>
-      );
+    else if (expand) return <ExpandTrue />;
     else return <ExpandFalse />;
     //eslint-disable-next-line
   }, [transition, videoWidth]);
@@ -39,6 +33,7 @@ const WidgetWrap = () => {
     <ErrorBoundary>
       {randerShadow}
       <div className="widget-wrap" style={props} ref={transitionRef}>
+        {expand && startLive && <VideoLive videoWidth={videoWidth} />}
         <Suspense fallback={<Fragment />}>{randerEntries}</Suspense>
       </div>
     </ErrorBoundary>

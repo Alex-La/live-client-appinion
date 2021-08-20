@@ -3,15 +3,16 @@
   font-family: "Montserrat", sans-serif !important;
   height: 50px;
   background: var(--default-color);
-  border: 1px solid var(--default-color);
   box-sizing: border-box;
   box-shadow: 1px 3px 6px var(--shadow-color);
+  border: none;
   border-radius: 5px;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
   color: #ffffff;
   transition: 0.3s;
+  box-sizing: border-box !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,16 +20,14 @@
 
 #live-appinion-root button:hover {
   background-color: var(--hover-color);
-  border: 1px solid var(--hover-color);
 }
 
 #live-appinion-root button:disabled {
   background-color: var(--disabled-back-color);
-  border: 1px solid var(--disabled-back-color);
-  color: var(--disabled-color);
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 #live-appinion-root button:active {
   background-color: var(--active-color);
-  border: 1px solid var(--active-color);
 }

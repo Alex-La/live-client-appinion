@@ -1,4 +1,3 @@
-import React from "react";
 import "./button.css";
 
 import { LightenDarkenColor } from "../../utils";
@@ -21,8 +20,7 @@ const Button = ({
         "--shadow-color": `${color}3F`,
         "--default-color": color,
         "--hover-color": LightenDarkenColor(color, 20),
-        "--disabled-back-color": LightenDarkenColor(color, 30),
-        "--disabled-color": LightenDarkenColor(color, -20),
+        "--disabled-back-color": `${color}3F`,
         "--active-color": LightenDarkenColor(color, -10),
       }}
     >

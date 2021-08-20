@@ -1,4 +1,8 @@
-#live-appinion-root > .widget-wrap > .expand-true > .body > .info-message {
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .appinion-widget-body
+  > .info-message {
   background-color: var(--color);
   margin: 30px 20px;
   text-align: center;
@@ -9,7 +13,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .info-message
   > .message {
   display: flex;

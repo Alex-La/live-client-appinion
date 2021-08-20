@@ -1,5 +1,9 @@
-#live-appinion-root > .widget-wrap > .expand-true > .body > .appinion-chat {
-  height: 430px;
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .appinion-widget-body
+  > .appinion-chat {
+  height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -7,13 +11,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat::-webkit-scrollbar {
   display: none;
 }

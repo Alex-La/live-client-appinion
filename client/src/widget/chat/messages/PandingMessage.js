@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../css/chat/messages/pandingMessage.css";
 
 import Text from "../../../components/Text/Text";

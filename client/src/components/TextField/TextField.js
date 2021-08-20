@@ -17,6 +17,8 @@ const TextField = ({
   name,
   style,
   placeholder,
+  required = false,
+  autoComplete = true,
 }) => {
   const inputRef = useRef();
   const [labelStyle, setLableStyle] = useState(defaultStyle);
@@ -40,6 +42,8 @@ const TextField = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        required={required}
+        autoComplete={autoComplete}
       />
       {label && (
         <label onClick={focus} style={labelStyle}>

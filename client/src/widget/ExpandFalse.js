@@ -18,7 +18,7 @@ const ExpandFalse = () => {
           LIVE
         </Text>
         <div className="live-open">
-          <img src={ArrowOpen} alt="arrowOpen" width="8.63px" height="4.96px" />
+          <img src={ArrowOpen} alt="arrowOpen" />
         </div>
       </div>
 

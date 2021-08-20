@@ -2,21 +2,21 @@ import React, { useContext } from "react";
 import "../../css/expandTrue/controlAndManager.css";
 
 import ControlContext from "../../context/ControlContext";
-import SocketContext from "../../context/SocketContext";
 
 import Text from "../../components/Text/Text";
 import Manager from "../../images/dispatcher.png";
 import Close from "../../images/js/Close";
 import Collapse from "../../images/js/Collapse";
+import SocketContext from "../../context/SocketContext";
 
 const ControlAndManager = () => {
   const { data, setExpand, setClose } = useContext(ControlContext);
-  const { endsession } = useContext(SocketContext);
+  const { deleteSession } = useContext(SocketContext);
 
   const handleExpand = () => setExpand(false);
   const handleClose = () => {
     setClose(true);
-    endsession();
+    deleteSession();
   };
 
   return (

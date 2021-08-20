@@ -1,7 +1,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .panding-message {
   text-align: center;
@@ -14,7 +14,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .panding-message
   > .title {
@@ -26,7 +26,7 @@
 #live-appinion-root
   > .widget-wrap
   > .expand-true
-  > .body
+  > .appinion-widget-body
   > .appinion-chat
   > .panding-message
   > .panding {

@@ -15,9 +15,22 @@
   height: 6px;
   background-color: #f44336;
   box-shadow: 0px 0px 0px 6px rgba(244, 67, 54, 0.15);
-  border-radius: 50px;
+  border-radius: 100px;
   margin-right: 15px;
   margin-left: 6px;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 #live-appinion-root > .widget-wrap > .expand-false > .live > .live-open {

@@ -1,9 +1,8 @@
-import React from "react";
 import "./checkBox.css";
 
 import Check from "../../images/js/Check";
 
-const CheckBox = ({ checked = false, onChange, color }) => {
+const CheckBox = ({ checked = true, onChange, color }) => {
   return (
     <div className="appinion-checkbox-root">
       <label htmlFor="appinion-checkbox" className="appinion-checkbox">

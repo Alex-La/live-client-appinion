@@ -4,11 +4,9 @@ import ControlContext from "../../../context/ControlContext";
 
 import Stream from "../../../images/stream.svg";
 import Text from "../../../components/Text/Text";
-import SocketContext from "../../../context/SocketContext";
 
 const OfferMessage = ({ color }) => {
   const { startLive, data } = useContext(ControlContext);
-  const { stream, answer } = useContext(SocketContext);
 
   const handleStart = () => answer();
 
@@ -50,7 +48,7 @@ const OfferMessage = ({ color }) => {
   }
 
   return (
-    <Button onClick={handleStart} color={color} style={{ margin: "20px 50px" }}>
+    <Button onClick={handleStart} color={color} style={{ margin: "10px 50px" }}>
       <img src={Stream} alt="stream" style={{ marginRight: 12 }} />
       Подключиться к трансляции
     </Button>

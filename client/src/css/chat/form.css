@@ -1,5 +1,9 @@
-#live-appinion-root > .widget-wrap > .expand-true > .body > .send-form {
-  position: sticky;
+#live-appinion-root
+  > .widget-wrap
+  > .expand-true
+  > .appinion-widget-body
+  > .send-form {
   display: flex;
   background-color: white;
+  box-sizing: content-box;
 }
