@@ -35,7 +35,6 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     socket.on("getsession", (user) => {
-      console.log(user);
       setUser(user);
       socket.emit("messages", user.id, user.host);
       setExpand(true);
@@ -50,12 +49,11 @@ export const SocketContextProvider = ({ children }) => {
     });
 
     socket.on("endcall", (id, host) => {
-      console.log(user);
       socket.emit("messages", id, host);
       setStream(null);
       setStartLive(false);
     });
-  }, []);
+  }, [setExpand, setStartLive]);
 
   const createSession = (user) => {
     setUser(user);

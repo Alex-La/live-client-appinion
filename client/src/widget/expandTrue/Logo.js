@@ -9,6 +9,7 @@ const Logo = () => {
       <a
         className="logo-link"
         referrerPolicy="no-referrer"
+        rel="noreferrer"
         href="https://appinion.digital"
         target="_blank"
       >

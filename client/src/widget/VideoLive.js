@@ -28,7 +28,7 @@ const VideoLive = ({ videoWidth }) => {
         setStream(stream);
       });
     });
-  }, []);
+  }, [answer, setStream, user.id]);
 
   useEffect(() => {
     if (stream && videoRef.current) {
