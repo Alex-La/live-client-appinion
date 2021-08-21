@@ -3,8 +3,9 @@ import "../../../css/chat/messages/defaultMessage.css";
 
 import Manager from "../../../images/dispatcher.png";
 import Text from "../../../components/Text/Text";
+import { socketEndpoint } from "../../../utils/constants";
 
-const DefaultMessage = ({ message, color }) => {
+const DefaultMessage = ({ message, color, avatar }) => {
   return (
     <div
       className="message"
@@ -12,7 +13,11 @@ const DefaultMessage = ({ message, color }) => {
     >
       {message.from === "manager" && (
         <div className="icon-wrap" style={{ marginRight: 12 }}>
-          <img src={Manager} alt="manager" style={{ "--color": color }} />
+          <img
+            src={avatar ? socketEndpoint + avatar : Manager}
+            alt="manager"
+            style={{ "--color": color }}
+          />
           <Text weight={500} size="12px">
             {message.time}
           </Text>

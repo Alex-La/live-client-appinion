@@ -12,7 +12,13 @@ const Message = ({ message }) => {
 
   switch (message.type) {
     case "default":
-      return <DefaultMessage message={message} color={data.mainColor} />;
+      return (
+        <DefaultMessage
+          message={message}
+          color={data.mainColor}
+          avatar={data.avatar}
+        />
+      );
     case "join":
       return <PandingMessage color={data.mainColor} />;
     case "live-start":
