@@ -8,6 +8,7 @@ import Manager from "../../images/dispatcher.png";
 import Close from "../../images/js/Close";
 import Collapse from "../../images/js/Collapse";
 import SocketContext from "../../context/SocketContext";
+import { socketEndpoint } from "../../utils/constants";
 
 const ControlAndManager = () => {
   const { data, setExpand, setClose } = useContext(ControlContext);
@@ -23,7 +24,10 @@ const ControlAndManager = () => {
     <div className="cam-wrap">
       <div className="manager">
         <div className="img-wrap">
-          <img src={Manager} alt="manager" />
+          <img
+            src={data.avatar ? socketEndpoint + data.avatar.path : Manager}
+            alt="manager"
+          />
           <div className="online" style={{ "--color": data.mainColor }} />
         </div>
         <div className="manager-data">

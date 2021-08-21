@@ -25,5 +25,8 @@ export const query = `query videoWidget($id: String!) {
     host
     tariffType
     online
+    avatar {
+      path
+    }
   }
 }`;
