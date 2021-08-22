@@ -14,7 +14,7 @@ const DefaultMessage = ({ message, color, avatar }) => {
       {message.from === "manager" && (
         <div className="icon-wrap" style={{ marginRight: 12 }}>
           <img
-            src={avatar ? socketEndpoint + avatar : Manager}
+            src={avatar ? socketEndpoint + avatar.path : Manager}
             alt="manager"
             style={{ "--color": color }}
           />
