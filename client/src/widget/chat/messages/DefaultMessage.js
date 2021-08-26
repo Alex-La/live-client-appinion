@@ -18,7 +18,7 @@ const DefaultMessage = ({ message, color, avatar }) => {
             alt="manager"
             style={{ "--color": color }}
           />
-          <Text weight={500} size="12px">
+          <Text weight={400} size="10px">
             {message.time}
           </Text>
         </div>
@@ -47,9 +47,11 @@ const DefaultMessage = ({ message, color, avatar }) => {
       {message.from === "user" && (
         <div className="icon-wrap" style={{ marginLeft: 12 }}>
           <div style={{ "--color": color }}>
-            <Text weight="400">Вы</Text>
+            <Text weight="400" size="10px">
+              Вы
+            </Text>
           </div>
-          <Text weight={500} size="12px">
+          <Text weight={400} size="10px">
             {message.time}
           </Text>
         </div>
