@@ -36,10 +36,7 @@ const ExpandTrue = () => {
       </div>
       <div className="appinion-widget-body">
         {user ? (
-          <Fragment>
-            <Chat />
-            <ChatForm />
-          </Fragment>
+          <Chat />
         ) : (
           <Fragment>
             <InfoMessage />
@@ -47,6 +44,7 @@ const ExpandTrue = () => {
           </Fragment>
         )}
       </div>
+      {user && <ChatForm />}
       <div className="appinion-widget-footer">
         <Logo />
       </div>

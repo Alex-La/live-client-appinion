@@ -27,7 +27,7 @@ const Form = () => {
     <form className="send-form" onSubmit={handleSend}>
       <TextField
         placeholder={"Ваше сообщение"}
-        style={{ width: "100%", "--color": data.mainColor }}
+        style={{ flex: 1, "--color": data.mainColor }}
         onChange={handleChange}
         value={message}
         autoComplete={false}
@@ -38,6 +38,7 @@ const Form = () => {
         type="submit"
       >
         <svg
+          style={{ paddingLeft: 2 }}
           width="11"
           height="16"
           viewBox="0 0 11 16"
